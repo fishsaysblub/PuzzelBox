@@ -2,49 +2,45 @@
 Socket IO server
 """
 import json
-import eventlet
 import socketio
+from aiohttp import web
 import ipaddress as ip
 
 import ComConstant as s
 
 # Create Socket.IO server
-sio = socketio.Server()
+sio = socketio.AsyncServer()
 # Wrap with WSGI app
-app = socketio.WSGIApp(sio)
+app = web.Application()
+sio.attach(app)
 
 # Device list
 connected_devices = {}
 mac_sid_lookup = {}
 
+
 #### Server connect ####
 def start_server():
     """Start Socket server
     """
-    eventlet.wsgi.server(eventlet.listen((s.SERVER_IP, s.SERVER_PORT)), app, log_output=__debug__)
+    web.run_app(app, host=s.SERVER_IP, port=s.SERVER_PORT)
 
 
 ### Handle connect / disconnect ####
 @sio.event
-def connect(sid, environ):
+async def connect(sid, environ):
     """Server on connect method
 
     Args:
         sid (string): Client SID
         environ (Json): Client data
     """
-    client_ip = environ['REMOTE_ADDR']
-
-    if ip.ip_address(client_ip) in ip.ip_network(s.NETWORK_RANGE):
-        print(f"\033[93m> New connection request from ({sid}) IP: {client_ip} \n Connecting...\033[97m")
-        sio.emit("type_req", 0, to=sid);       # Request connected device data and type
-    else:
-        print('\033[91m> Unknown network range ', client_ip, '\033[97m')
-        raise ConnectionRefusedError('out or ip range')
+    print(f"\033[93m> New connection request from ({sid})  \n Connecting...\033[97m")
+    await sio.emit("type_req", 0, to=sid);       # Request connected device data and type
 
 
 @sio.on("type_rep")
-def on_type_response(sid, data):
+async def on_type_response(sid, data):
     """Handle type respons
 
     Args:
@@ -76,8 +72,9 @@ def disconnect(sid):
     Args:
         sid (string): Client SID
     """
-    mac_sid_lookup.pop(connected_devices[sid]["mac_address"])
-    connected_devices.pop(sid)
+    if sid in connected_devices:
+        mac_sid_lookup.pop(connected_devices[sid]["mac_address"])
+        connected_devices.pop(sid)
 
     print('\033[93m> Disconnect ', sid, '\033[97m')
     if __debug__: 
