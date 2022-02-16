@@ -28,11 +28,12 @@ def my_message(data):
 @sio.on("type_req")
 def on_type_request(data):
     type_info = {
-        "type_id": 1, 
+        "type_id": 2, 
         "mac_address": get_mac_address(), 
-        "ip_address": get_ip_address('bat0')
+        "ip_address": get_ip_address('eth0')
     }
 
+    print("Sending type")
     sio.emit("type_rep", type_info)
 
 @sio.event
@@ -41,7 +42,7 @@ def disconnect():
 
 while not connected:
     try:
-        sio.connect('http://192.168.199.1:5000')
+        sio.connect('http://localhost:5000')
         connected = True
     except socketio.exceptions.ConnectionError:
         print(f"Connect failed")
