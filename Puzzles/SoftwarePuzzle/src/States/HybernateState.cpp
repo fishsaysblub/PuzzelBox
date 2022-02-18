@@ -40,12 +40,8 @@ void HybernateState::on_awake()
 	{
 		StateMachine::instance().change_state(COMPLETED);
 	}
-	else if (beforeHybernationState == HYBERNATE)
-	{
-		Serial.println("Found hybernate");
-	}
 	else
 	{
-		Serial.println("No previous state found.");
+		Serial.println("Error did not find state after Hybernation.");
 	}
 }

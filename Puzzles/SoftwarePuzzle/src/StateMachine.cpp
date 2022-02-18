@@ -16,13 +16,7 @@ StateMachine::StateMachine() :
 		{ENTRY, new EntryState},
 		{RUNNING, new RunningState},
 		{COMPLETED, new CompletedState}
-	}),
-	// Set I/O pins
-	_input_pins({0,1,2,3,4,5}),
-	_output_pins({0,1,2,3,4,5}),
-	data_pin(0),
-	clock_pin(0),
-	latch_pin(0)
+	})
 {
 	std::pair<EState, State *> firstState = std::make_pair(INITIALIZE, _all_states[INITIALIZE]);
 	_current_state = &firstState;
