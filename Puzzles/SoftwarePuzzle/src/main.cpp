@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include <utility>
 #include <Arduino.h>
 #include "StateMachine.h"
@@ -11,6 +10,6 @@ void setup()
 
 void loop()
 {
-	Serial.println("Left statemachine");
+	Serial.println("Error: Left statemachine");
 	delay(1000);
 }

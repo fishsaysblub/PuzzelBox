@@ -24,7 +24,7 @@ void HybernateState::on_exit()
 void HybernateState::hybernate()
 {
 	Serial.println("Hybernating...");
-	delay(5000);
+	delay(1000);
 	on_awake();
 }
 
@@ -42,6 +42,6 @@ void HybernateState::on_awake()
 	}
 	else
 	{
-		Serial.println("Error did not find state after Hybernation.");
+		Serial.println("Error: Did not find state after Hybernation.");
 	}
 }

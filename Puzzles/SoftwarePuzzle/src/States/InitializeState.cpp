@@ -14,8 +14,10 @@ InitializeState::~InitializeState()
 void InitializeState::on_enter()
 {
 	Serial.println("Enter Init");
+
 	// Start GPIO manager
 	GpioManager::instance().start_manager();
+
 	InitializeState::on_stay();
 }
 

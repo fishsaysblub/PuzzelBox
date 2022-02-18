@@ -1,3 +1,4 @@
+#pragma once
 #include "State.h"
 
 class CompletedState final : public State

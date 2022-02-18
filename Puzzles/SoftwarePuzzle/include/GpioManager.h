@@ -1,4 +1,6 @@
-class GpioManager
+#pragma once
+
+class GpioManager final
 {
 public:
     // Singleton
@@ -18,7 +20,7 @@ public:
 	int get_input_pin( int index );
 	int get_output_pin( int index );
 
-	int _number_of_pins;
+	int number_of_pins;
 
 private:
     GpioManager();
