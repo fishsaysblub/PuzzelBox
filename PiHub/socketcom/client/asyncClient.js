@@ -6,8 +6,8 @@ const socket = io("http://localhost:5000", {
 	auth: {
 		token: process.env.SERVER_TOKEN,
 		type_id: 2,
-		mac_address: getmac("wlan0"),
-		ip_address: getip("bat0")
+		mac_address: getmac("eth0"),
+		ip_address: getip("eth0")
 	},
 	query: {
 		client: "JavaScript"

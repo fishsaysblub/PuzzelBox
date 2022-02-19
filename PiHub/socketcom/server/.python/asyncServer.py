@@ -6,7 +6,7 @@ import socketio
 from aiohttp import web
 import ipaddress as ip
 
-import ComConstant as s
+import PiHub.socketcom.server.ComConstant as s
 
 # Create Socket.IO server
 sio = socketio.AsyncServer()

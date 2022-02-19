@@ -3,23 +3,17 @@ import 'dotenv/config'
 import { Server, Socket } from 'socket.io';
 import express from 'express';
 import http from 'http';
+import {connected_devices, mac_sid_lookup} from './data/device.js';
 
 // Init server
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
-	cors: {
-		origin: "http://localhost:8080",
-		methods: ["GET", "POST"]
-	  }
+	// options
 });
 
 // Constants
 const type_list = ["Web", "Bomb", "PuzzleBox"]
-
-// Data objects
-let connected_devices = {}
-let mac_sid_lookup = {}
 
 /**
  * Device connection method
@@ -42,7 +36,7 @@ io.on("connection", (socket) => {
 	if (data.type_id != 0) {
 		store_device_info(sid, data);
 	} else {
-		console.log("Webservice connected")
+		console.log("Unknown device connected")
 	}
 
 	// Send typecheck to older non JavaScript clients
@@ -98,5 +92,7 @@ function store_device_info(sid, data) {
 	console.log(connected_devices);
 }
 
-// Start server
-server.listen(5000, "127.0.0.1");
+export function start_device_socket() {
+	// Start server
+	server.listen(5000, "127.0.0.1");
+}
