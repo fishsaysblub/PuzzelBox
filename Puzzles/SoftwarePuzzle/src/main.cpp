@@ -10,6 +10,5 @@ void setup()
 
 void loop()
 {
-	Serial.println("Error: Left statemachine");
-	delay(1000);
+	StateMachine::instance().update();
 }

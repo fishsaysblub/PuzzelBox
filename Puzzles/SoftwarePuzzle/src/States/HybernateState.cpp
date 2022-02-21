@@ -13,19 +13,18 @@ HybernateState::~HybernateState()
 void HybernateState::on_enter()
 {
 	Serial.println("Enter Hybernate");
-	hybernate();
+}
+
+void HybernateState::on_stay()
+{
+	Serial.println("Hybernating...");
+	delay(1000); //TODO: Add real esp sleep function
+	on_awake();
 }
 
 void HybernateState::on_exit()
 {
 	Serial.println("Leave Hybernate\n");
-}
-
-void HybernateState::hybernate()
-{
-	Serial.println("Hybernating...");
-	delay(1000);
-	on_awake();
 }
 
 void HybernateState::on_awake()

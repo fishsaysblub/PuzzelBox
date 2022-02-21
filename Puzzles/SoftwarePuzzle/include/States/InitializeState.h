@@ -8,6 +8,6 @@ public:
 	virtual ~InitializeState();
 
 	virtual void on_enter() override;
-			void on_stay();
-	virtual void on_exit() override;
+	virtual void on_stay()  override;
+	virtual void on_exit()  override;
 };

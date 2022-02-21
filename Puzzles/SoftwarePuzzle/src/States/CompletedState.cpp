@@ -13,6 +13,10 @@ CompletedState::~CompletedState()
 void CompletedState::on_enter()
 {
 	Serial.println("Enter Completed");
+}
+
+void CompletedState::on_stay()
+{
 	delay(1000);
 	StateMachine::instance().change_state(HYBERNATE);
 }

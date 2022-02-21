@@ -13,6 +13,10 @@ EntryState::~EntryState()
 void EntryState::on_enter()
 {
 	Serial.println("Enter Entry");
+}
+
+void EntryState::on_stay()
+{
 	StateMachine::instance().change_state(RUNNING);
 }
 

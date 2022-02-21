@@ -2,7 +2,6 @@
 #include "GpioManager.h"
 
 GpioManager::GpioManager():
-	number_of_pins(6),
 	_data_pin(27),
 	_clock_pin(14),
 	_latch_pin((13)),
@@ -24,7 +23,7 @@ void GpioManager::start_manager()
 
 void GpioManager::setup_pins()
 {
-	for(int i = 0; i < number_of_pins; i++)
+	for(int i = 0; i < PIN_COUNT_IO; i++)
 	{
 		pinMode(_input_pins[i], INPUT);
 		pinMode(_output_pins[i], OUTPUT);
@@ -52,7 +51,7 @@ int GpioManager::get_latch_pin()
 
 int GpioManager::get_input_pin( int index )
 {
-	if ( index < number_of_pins )
+	if ( index < PIN_COUNT_IO )
 	{
 		return _input_pins[index];
 	}
@@ -64,7 +63,7 @@ int GpioManager::get_input_pin( int index )
 
 int GpioManager::get_output_pin( int index )
 {
-	if ( index < number_of_pins )
+	if ( index < PIN_COUNT_IO )
 	{
 		return _output_pins[index];
 	}

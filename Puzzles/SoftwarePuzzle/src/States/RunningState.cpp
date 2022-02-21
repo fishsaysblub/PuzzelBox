@@ -1,5 +1,4 @@
 #include <string>
-#include <sstream>
 #include <Arduino.h>
 #include "GpioManager.h"
 #include "StateMachine.h"
@@ -22,8 +21,6 @@ void RunningState::on_enter()
 
 	int correct[6] = {4, 3, 2, 1, 0, 5};
 	set_correct_output(correct);
-
-	RunningState::on_stay();
 }
 
 void RunningState::on_stay()
@@ -33,27 +30,28 @@ void RunningState::on_stay()
 		get_user_input();
 	}
 
-	render_leds(21845);
+	Serial.println("Puzzle Completed");
+	render_leds(21845); //TODO: Add real dismantle codes
 	StateMachine::instance().change_state(COMPLETED);
 }
 
-void RunningState::set_correct_output(int arr[6])
+void RunningState::set_correct_output(int ouput_array[6])
 {
-	for (int i = 0; i < GpioManager::instance().number_of_pins; i++)
+	for (int i = 0; i < PIN_COUNT_IO; i++)
 	{
-		_correct_output[i] = arr[i];
+		_correct_output[i] = ouput_array[i];
 	}
 }
 
 void RunningState::get_user_input()
 {
-	for (int i = 0; i < GpioManager::instance().number_of_pins; i++)
+	for (int i = 0; i < PIN_COUNT_IO; i++)
 	{
 		digitalWrite(GpioManager::instance().get_output_pin(i), HIGH);
 
 		bool pinIsConnected = false;
 
-		for (int j = 0; j < GpioManager::instance().number_of_pins; j++)
+		for (int j = 0; j < PIN_COUNT_IO; j++)
 		{
 			if (digitalRead(GpioManager::instance().get_input_pin(j)))
 			{
@@ -74,7 +72,7 @@ void RunningState::get_user_input()
 
 bool RunningState::check_completed()
 {
-	for (int i = 0; i < GpioManager::instance().number_of_pins; i++)
+	for (int i = 0; i < PIN_COUNT_IO; i++)
 	{
 		if (_output_values[i] != _correct_output[i])
 		{

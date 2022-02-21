@@ -1,4 +1,5 @@
 #pragma once
+#define PIN_COUNT_IO 6
 
 class GpioManager final
 {
@@ -19,8 +20,6 @@ public:
 
 	int get_input_pin( int index );
 	int get_output_pin( int index );
-
-	int number_of_pins;
 
 private:
     GpioManager();

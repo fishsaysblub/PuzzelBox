@@ -16,5 +16,6 @@ class State
 {
 public:
 	virtual void on_enter() = 0;
-	virtual void on_exit() = 0;
+	virtual void on_stay()  = 0;
+	virtual void on_exit()  = 0;
 };

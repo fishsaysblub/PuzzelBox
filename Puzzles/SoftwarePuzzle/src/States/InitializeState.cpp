@@ -17,8 +17,6 @@ void InitializeState::on_enter()
 
 	// Start GPIO manager
 	GpioManager::instance().start_manager();
-
-	InitializeState::on_stay();
 }
 
 void InitializeState::on_stay()

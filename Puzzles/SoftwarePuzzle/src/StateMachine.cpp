@@ -18,8 +18,8 @@ StateMachine::StateMachine() :
 		{COMPLETED, new CompletedState}
 	})
 {
-	std::pair<EState, State *> firstState = std::make_pair(INITIALIZE, _all_states[INITIALIZE]);
-	_current_state = &firstState;
+	_current_state = std::make_pair(INITIALIZE, _all_states[INITIALIZE]);
+	_previous_state = INITIALIZE;
 }
 
 void StateMachine::start_engine()
@@ -30,18 +30,23 @@ void StateMachine::start_engine()
 
 void StateMachine::change_state(EState eState)
 {
-	_all_states[_current_state->first]->on_exit();
-	_previous_state = _current_state->first;
+	_current_state.second->on_exit();
+	_previous_state = _current_state.first;
 
-	_current_state->first = eState;
-	_current_state->second = _all_states[eState];
+	_current_state.first = eState;
+	_current_state.second = _all_states[eState];
 
-	_all_states[eState]->on_enter();
+	_current_state.second->on_enter();
+}
+
+void StateMachine::update()
+{
+	_current_state.second->on_stay();
 }
 
 EState StateMachine::get_current_state()
 {
-	return _current_state->first;
+	return _current_state.first;
 }
 
 EState StateMachine::get_previous_state()
