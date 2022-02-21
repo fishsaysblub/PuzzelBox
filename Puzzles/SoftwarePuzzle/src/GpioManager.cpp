@@ -10,17 +10,6 @@ GpioManager::GpioManager():
 {
 }
 
-GpioManager::~GpioManager()
-{
-
-}
-
-void GpioManager::start_manager()
-{
-	Serial.begin(9600);
-	Serial.print("\n\n");
-}
-
 void GpioManager::setup_pins()
 {
 	for(int i = 0; i < PIN_COUNT_IO; i++)

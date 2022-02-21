@@ -1,5 +1,8 @@
 #pragma once
 
+/**
+ * @brief All Statemachine states as enum.
+ */
 typedef enum
 {
 	INITIALIZE,
@@ -9,13 +12,22 @@ typedef enum
 	COMPLETED
 } EState;
 
-// Abstract class
-// Dit betekenet deze class doet niks maar zorgt er voor dat over geerft kan worden
-
+/**
+ * @brief Abstract state class.
+ */
 class State
 {
 public:
+	/**
+	 * @brief Method is called when entering a state.
+	 */
 	virtual void on_enter() = 0;
-	virtual void on_stay()  = 0;
-	virtual void on_exit()  = 0;
+	/**
+	 * @brief Update loop for a state.
+	 */
+	virtual void on_stay() = 0;
+	/**
+	 * @brief Method is called when exiting a state.
+	 */
+	virtual void on_exit() = 0;
 };
