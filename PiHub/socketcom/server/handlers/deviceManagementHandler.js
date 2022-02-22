@@ -10,7 +10,7 @@ export default (io, socket) => {
     }
 
     /**
-     * Handle device link request from the device.
+     * Handle link request from the device.
      * @param {null} data 
      */
     function device_link_req(data) {

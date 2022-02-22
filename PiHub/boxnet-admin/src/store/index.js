@@ -7,8 +7,8 @@ export default createStore({
   getters: {
   },
   mutations: {
-    "SOCKET_device_list_rep"(state, server) {
-      state.devices = server;
+    "SOCKET_device_list_rep"(state, data) {
+      state.devices = data;
       console.log("Received socket device update");
     }
   },

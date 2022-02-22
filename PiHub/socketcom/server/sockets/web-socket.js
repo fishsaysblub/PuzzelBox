@@ -1,4 +1,3 @@
-//import createServer from "express";
 import 'dotenv/config'
 import { Server, Socket } from 'socket.io';
 import express from 'express';
@@ -49,6 +48,7 @@ web_io.on("connection", (socket) => {
 
 /**
  * Start socket server
+ * @param {String} host Local listener IP address
  */
 export function start_web_socket(host) {
 	// Start server on hotspot interface

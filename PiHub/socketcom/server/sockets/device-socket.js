@@ -25,7 +25,7 @@ export default device_io;
  * @param {Object} socket - Socket data object 
  */
 device_io.on("connection", (socket) => {
-	console.log("Connected: " + socket.id);
+	console.log("Connected: " + socket.id + socket.handshake.query.test);
 
 	// Handle type information
 	let auth = socket.handshake.auth;
