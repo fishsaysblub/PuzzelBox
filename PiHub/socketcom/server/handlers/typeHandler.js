@@ -13,5 +13,5 @@ export default (io, socket) => {
     }
 
     // Socket calls
-    socket.on("type_rep", type_request);
+    socket.on("type_res", type_request);
 }

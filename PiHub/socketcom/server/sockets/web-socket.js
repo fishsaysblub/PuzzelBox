@@ -33,7 +33,7 @@ web_io.on("connection", (socket) => {
 	console.log("Webservice connected");
 
 	// Supply webserver with device list
-	web_io.emit("device_list_rep", get_device_list());
+	web_io.emit("device_list_res", get_device_list());
 
 	/**
 	 * Handle disconnect

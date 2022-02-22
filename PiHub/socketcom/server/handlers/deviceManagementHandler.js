@@ -1,4 +1,4 @@
-import { device_status } from "../data/device.js";
+import { device_status, get_device_link, mac_sid_lookup } from "../data/device.js";
 
 export default (io, socket) => {
     /**
@@ -15,8 +15,7 @@ export default (io, socket) => {
      */
     function device_link_req(data) {
         console.log("Device: " + socket.id + " Requesting for link");
-        //TODO Find link from stored links and emit link device back
-        io.to(socket.id).emit("device_link_rep", 0);   //! NULL for now
+        io.to(socket.id).emit("device_link_res", get_device_link(mac_sid_lookup[socket.id]));
     }
 
     /**

@@ -78,7 +78,7 @@ export function get_device_list() {
 			'link': get_device_link(data.mac_address)
 		};
 	}
-	web_io.emit("device_list_rep", return_data);
+	web_io.emit("device_list_res", return_data);
 	return return_data;
 }
 
@@ -162,7 +162,7 @@ export function remove_device_link(mac) {
  * @param {String} mac Mac lookup in device link list
  * @returns Device link entry
  */
-function get_device_link(mac) {
+export function get_device_link(mac) {
 	let data = {};
 	try {
 		data = fs.readFileSync(path.resolve(__dirname, "device_links.json"), "utf-8");

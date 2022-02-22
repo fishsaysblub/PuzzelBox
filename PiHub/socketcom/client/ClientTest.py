@@ -37,7 +37,7 @@ def on_type_request(data):
         "ip_address": get_ip_address("bat0")
     }
     print("Sending type")
-    sio.emit("type_rep", type_info)
+    sio.emit("type_res", type_info)
 
 @sio.event
 def disconnect():
