@@ -1,3 +1,13 @@
+/**************************************************************
+ * @file GpioManager.h
+ * @author Julian de Bruin (jybruin@avans.nl)
+ * @brief 
+ * @version 0.1
+ * @date 2022-02-22
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ **************************************************************/
 #pragma once
 #define PIN_COUNT_IO 6
 
@@ -17,11 +27,6 @@ public:
 		static GpioManager INSTANCE;
 		return INSTANCE;
 	}
-
-	/**
-	 * @brief Setting up GPIO all pins.
-	 */
-	void setup_pins();
 
 	/**
 	 * @brief Get the data pin.
@@ -62,12 +67,16 @@ private:
 	 * @brief Construct for Gpio Manager object.
 	 */
     GpioManager();
+	/**
+	 * @brief Destroy the Gpio Manager object
+	 * 
+	 */
     virtual ~GpioManager() = default;
 
-	int _data_pin;
-	int _clock_pin;
-	int _latch_pin;
+	int _data_pin; /*!< Pin used to send the data to shiftregister. */
+	int _clock_pin; /*!< Pin used to clock in the data to the shiftregsiter. */
+	int _latch_pin; /*!< Pin used display data in shiftregister to output pins. */
 	
-	int _input_pins[6];
-	int _output_pins[6];
+	int _input_pins[6]; /*!< Array of input pins. */
+	int _output_pins[6]; /*!< Array of output pins. */
 };

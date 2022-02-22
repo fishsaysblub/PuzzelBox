@@ -8,10 +8,6 @@ GpioManager::GpioManager():
 	_input_pins{9,35,34,36,39,25},
 	_output_pins{21,22,19,23,18,5}
 {
-}
-
-void GpioManager::setup_pins()
-{
 	for(int i = 0; i < PIN_COUNT_IO; i++)
 	{
 		pinMode(_input_pins[i], INPUT);

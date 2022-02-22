@@ -9,7 +9,7 @@ Utils::~Utils()
 {
 }
 
-std::string Utils::intToString(int value)
+std::string Utils::int_to_string(int value)
 {
 	std::string temp;
 	std::stringstream ss;

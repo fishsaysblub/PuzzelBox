@@ -22,5 +22,5 @@ public:
 	 * @param value Integer which is converted.
 	 * @return std::string Output std::string.
 	 */
-	std::string intToString(int value);
+	std::string int_to_string(int value);
 };

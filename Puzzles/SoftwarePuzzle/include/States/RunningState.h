@@ -35,7 +35,7 @@ public:
 	 * 
 	 * @param ouput_array Array used to set _correct_output array.
 	 */
-	void set_correct_output(int ouput_array[6]);
+	void set_correct_output(int *ouput_array);
 
 	/**
 	 * @brief Method gets the user inputs. 
@@ -48,7 +48,7 @@ public:
 	 * @return true When alle banana plugs are in correct input.
 	 * @return false When not alle banana plugs are plugged in correctly or are not coneccted.
 	 */
-	bool check_completed();
+	void puzzle_finished();
 	/**
 	 * @brief Method displays a uint16_t value in binary on 16 leds trough two cascaded shiftregisters.
 	 * 
@@ -60,7 +60,7 @@ public:
 	 * @brief Method used for debugging.
 	 * Method can be used to print the how the banana plugs are connected. 
 	 */
-	void printOutputValues();
+	void print_output_values();
 	/**
 	 * @brief Method used for debugging.
 	 * Method can be used to test the shiftregisters by alternating between leds every 400ms.
@@ -68,9 +68,19 @@ public:
 	void test_leds_and_shiftregisters();
 
 private:
-	Utils utils;
+	/**
+	 * @brief Union used to split unit16_t value into two bytes for each shiftresiter.
+	 */
+	union LedValues
+	{
+		uint16_t value; /*!< Value which will be displayed over 16 leds. */
+		uint8_t byteOne; /*<! First eight bits of 16 bit value */
+		uint8_t byteTwo; /*<! Seccond eight bits of 16 bit value */
+	};
+	
+	Utils _utils; /*!< Utility instance used in a test function. */
 
-	int _check_list[6];
-	int _output_values[6];
-	int _correct_output[6];
+	int _check_list[6]; /*!< An array used to check if all banana plugs are connected at the right position. */
+	int _input_values[6]; /*!< An array to save all the input states. */
+	int _correct_output[6]; /*!< An array conaining the desired output to complete the puzzle. */
 };
