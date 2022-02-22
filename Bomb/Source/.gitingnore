@@ -1,0 +1,10 @@
+# IDE
+.idea/*
+
+# CMake
+cmake-build*/*
+CMakeFiles/*
+cmake_install.cmake
+driver
+Makefile
+CMakeCache.txt

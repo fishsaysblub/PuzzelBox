@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.13)
+project(main_bom)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY bin/)
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lasound")
+SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lasound")
+
+include_directories(inc)
+
+add_executable(main_bom src/main.cpp src/Peripherals/Gpio.cpp inc/Peripherals/Gpio.h inc/Config.h src/AssembleConnection.cpp inc/AssembleConnection.h)
