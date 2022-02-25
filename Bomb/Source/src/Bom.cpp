@@ -14,8 +14,38 @@
 Bom::Bom()
     : m_startTime(0), m_start(0), m_duration(0), m_fuses(m_display.GetDriver()), m_file(""), m_displayError(false),
       m_userInput(0), m_iUserInput(0),
-      m_userInputActive(false)
+      m_userInputActive(false), _state(GameStates::PreOp)
 {
+}
+
+bool Bom::loop()
+{
+    switch (_state)
+    {
+    case GameStates::PreOp:
+        this->WaitForArmed();
+        break;
+    case GameStates::Idle:
+        this->WaitForCountdown();
+        break;
+    case GameStates::Setup:
+        this->SetUp();
+        break;
+    case GameStates::Running:
+        this->CountDown();
+        break;
+    case GameStates::Shutdown:
+        this->WaitForClose();
+        break;
+    case GameStates::Completed:
+        return false;
+        break;
+
+    default:
+        break;
+    }
+
+    return true;
 }
 
 void Bom::WaitForArmed()
@@ -50,7 +80,7 @@ void Bom::WaitForArmed()
         if (m_file.empty())
         {
             m_display.SetLed(Peripherals::Display::STATUS, CYAN);
-            goto SEARCH;
+            goto SEARCH; //! Bad practice (Does this loop forever?)
         }
     }
 
@@ -70,6 +100,9 @@ void Bom::WaitForArmed()
 
     ApplySettings(settings);
 
+    // Update state
+    this->set_state(GameStates::Idle);
+
     std::cout << "Setup done" << std::endl;
 }
 
@@ -85,103 +118,125 @@ void Bom::WaitForCountdown()
     m_start += m_startTime;
     m_display.SetLed(Peripherals::Display::STATUS, BLACK);
 
-    while (time(nullptr) <= m_start)
+    const unsigned currentTime = time(nullptr);
+    if ((currentTime & 0x01u) == 0x01)
     {
-        const unsigned currentTime = time(nullptr);
-        if ((currentTime & 0x01u) == 0x01)
-        {
-            toggle = true;
-        }
-        else if (toggle)
-        {
-            toggle = false;
-            m_display.SetLed(Peripherals::Display::ARMED, RED);
-        }
-        else
-        {
-            m_display.SetLed(Peripherals::Display::ARMED, BLACK);
-        }
-
-        DrawWaitDisplay(showCurrentTime, currentTime);
-
-        usleep(1000 * 100);
+        toggle = true;
     }
-    std::cout << "START" << std::endl;
+    else if (toggle)
+    {
+        toggle = false;
+        m_display.SetLed(Peripherals::Display::ARMED, RED);
+    }
+    else
+    {
+        m_display.SetLed(Peripherals::Display::ARMED, BLACK);
+    }
+
+    DrawWaitDisplay(showCurrentTime, currentTime);
+
+    usleep(1000 * 100);
+
+    if (time(nullptr) > m_start)
+    {
+        // Update state
+        this->set_state(GameStates::Setup);
+        std::cout << "START" << std::endl;
+    }
+}
+
+void Bom::SetUp()
+{
+    _displayer = new std::thread(&Bom::DisplayUpdater, this);
+
+    for (unsigned i = 1; i <= m_fuses.GetIncorrectCodes(); ++i)
+    {
+        m_duration -= i * PENALTY_STEPS;
+    }
+    m_duration += CABLE_BONUS * m_fuses.GetCableBonus();
+
+    m_display.SetLed(Peripherals::Display::STATUS, BLACK);
+
+    // Update state
+    this->set_state(GameStates::Running);
 }
 
 void Bom::CountDown()
 {
     unsigned currentTime;
-    std::thread displayer(&Bom::DisplayUpdater, this);
-
     try
     {
-        for (unsigned i = 1; i <= m_fuses.GetIncorrectCodes(); ++i)
+        if (m_keypad.Check())
         {
-            m_duration -= i * PENALTY_STEPS;
+            m_display.SetLed(Peripherals::Display::STATUS, BLUE);
+            m_userInputActive = true;
+
+            ReadKeyPad();
         }
-        m_duration += CABLE_BONUS * m_fuses.GetCableBonus();
 
-        m_display.SetLed(Peripherals::Display::STATUS, BLACK);
-        while ((currentTime = time(nullptr)) < (m_start + m_duration) &&
-               m_fuses.GetActiveFuses() > 0)
+        m_jumpers.Monitor();
+        CheckUserCode();
+        usleep(100 * 1000);
+
+        // Check if done
+        if ((currentTime = time(nullptr)) >= (m_start + m_duration) ||
+            m_fuses.GetActiveFuses() <= 0)
         {
+            m_display.SetLed(Peripherals::Display::STATUS, BLACK);
+            m_duration = 0;
 
-            if (m_keypad.Check())
+            if (m_fuses.GetActiveFuses() > 0)
             {
-                m_display.SetLed(Peripherals::Display::STATUS, BLUE);
-                m_userInputActive = true;
-
-                ReadKeyPad();
+                m_sound.Biem();
+                std::cout << "Biem" << std::endl;
+                std::this_thread::sleep_for(std::chrono::seconds(4));
             }
 
-            m_jumpers.Monitor();
+            system("rm ./setup.bom");
+            system("rm ./fuses");
+            _displayer->join();
 
-            CheckUserCode();
-            usleep(100 * 1000);
+            // Update state
+            this->set_state(GameStates::Shutdown);
         }
-        m_display.SetLed(Peripherals::Display::STATUS, BLACK);
-        m_duration = 0;
-
-        if (m_fuses.GetActiveFuses() > 0)
-        {
-            m_sound.Biem();
-            std::cout << "Biem" << std::endl;
-            std::this_thread::sleep_for(std::chrono::seconds(4));
-        }
-
-        system("rm ./setup.bom");
-        system("rm ./fuses");
-        displayer.join();
     }
     catch (const char *err)
     {
         m_duration = 0;
-        displayer.join();
+        _displayer->join();
+        this->set_state(GameStates::Shutdown);
     }
     catch (std::string &err)
     {
         m_duration = 0;
-        displayer.join();
+        _displayer->join();
+        this->set_state(GameStates::Shutdown);
     }
     catch (std::exception &err)
     {
         m_duration = 0;
-        displayer.join();
+        _displayer->join();
+        this->set_state(GameStates::Shutdown);
     }
 }
 
 void Bom::WaitForClose()
 {
-    while (true)
+    if (m_keypad.Check() && m_keypad.GetKey() == Peripherals::Keypad::KEY_CAD)
     {
-
-        if (m_keypad.Check() && m_keypad.GetKey() == Peripherals::Keypad::KEY_CAD)
-        {
-            return;
-        }
-        usleep(100 * 1000);
+        this->set_state(GameStates::Completed);
     }
+    usleep(100 * 1000);
+}
+
+Bom::GameStates Bom::get_state()
+{
+    return _state;
+}
+
+void Bom::set_state(Bom::GameStates state)
+{
+    _state = state;
 }
 
 void Bom::SetCountdown(int h, int m, int s)
@@ -713,18 +768,18 @@ void Bom::ApplySettings(const std::vector<int> &settings)
 {
     uint8_t jumperMap[NUMBER_OF_JUMPER_COLUMNS] = {};
 
-    SetCountdown(settings[0], settings[1], settings[2]);
-    SetStartTime(settings[3], settings[4], settings[5]);
-    m_fuses.SetCableFilter(settings[7]);
+    SetCountdown(settings[0], settings[1], settings[2]); // Time in H M S
+    SetStartTime(settings[3], settings[4], settings[5]); // Time in H-2 M S
+    m_fuses.SetCableFilter(settings[7]);                 // Cable mask 1==negative 1111b
 
     for (int i = 0; i < NUMBER_OF_JUMPER_COLUMNS; ++i)
     {
-        jumperMap[i] = settings[i + 8];
+        jumperMap[i] = settings[i + 8]; // KeyPad A-H 1-8 links
     }
     m_jumpers.SetMap(jumperMap);
 
     if (settings[6] > 0)
     {
-        m_fuses.SetMinCodes(settings[6]);
+        m_fuses.SetMinCodes(settings[6]); // Code count
     }
 }

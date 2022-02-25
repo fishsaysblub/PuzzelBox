@@ -14,6 +14,10 @@
 
 typedef std::chrono::duration<int, std::ratio_multiply<std::chrono::hours::period, std::ratio<24>>::type> Days;
 
+/**************************************************************
+ * @brief Main bomb cycle class
+ * 
+ **************************************************************/
 class Bom
 {
 public:
@@ -31,6 +35,28 @@ public:
 
 public:
     /**************************************************************
+     * @brief Game states
+     * 
+     **************************************************************/
+    enum GameStates {
+        PreOp,
+        Idle,
+        Setup,
+        Running,
+        Shutdown,
+        Completed
+    };
+
+    /**************************************************************
+     * @brief Main game loop method
+     * 
+     * Switches between game states
+     * @return true - Game is running
+     * @return false - Game has ended 
+     **************************************************************/
+    bool loop();
+
+    /**************************************************************
      * @brief Wait for device configuration
      * 
      * Reads .bom file from usb device and sets settings 
@@ -44,6 +70,12 @@ public:
     void WaitForCountdown();
 
     /**************************************************************
+     * @brief Setup for main game loop
+     * 
+     **************************************************************/
+    void SetUp();
+
+    /**************************************************************
      * @brief Main game loop
      * 
      **************************************************************/
@@ -54,6 +86,13 @@ public:
      * 
      **************************************************************/
     void WaitForClose();
+
+    /**************************************************************
+     * @brief Get the game state
+     * 
+     * @return GameStates - State
+     **************************************************************/
+    GameStates get_state();
 
 private:
     unsigned m_startTime;
@@ -71,7 +110,14 @@ private:
     int m_iUserInput;
     bool m_userInputActive;
 
-private:
+    GameStates _state;                  /*!< Current game state */
+    /**************************************************************
+     * @brief Set the game state
+     * 
+     * @param state - New state
+     **************************************************************/
+    void set_state(GameStates state);
+
     /**************************************************************
      * @brief Set the Countdown length
      * 

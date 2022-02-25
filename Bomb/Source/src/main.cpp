@@ -12,15 +12,14 @@ int main()
 {
     try
     {
-        //        Peripherals::Sound sound;
-        //        sound.Biem();
-        //        std::this_thread::sleep_for(std::chrono::seconds(5));
-
+        // Main game class
         Bom bom;
-        bom.WaitForArmed();
-        bom.WaitForCountdown();
-        bom.CountDown();
-        bom.WaitForClose();
+        
+        // Non blocking gameloop while game is running
+        while (bom.loop()) 
+        {
+            // Update communication here
+        }
 
         std::cout << "END GAME" << std::endl;
     }

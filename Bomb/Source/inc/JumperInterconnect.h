@@ -11,14 +11,44 @@
 class JumperInterconnect
 {
 public:
+    /**************************************************************
+     * @brief Construct a new Jumper Interconnect object
+     * 
+     **************************************************************/
     JumperInterconnect();
+
+    /**************************************************************
+     * @brief Destroy the Jumper Interconnect object
+     * 
+     **************************************************************/
     ~JumperInterconnect() = default;
 
 public:
+    /**************************************************************
+     * @brief Read and store jumper inputs
+     * 
+     **************************************************************/
     void Monitor();
+
+    /**************************************************************
+     * @brief Check wire combination
+     * 
+     * @return true - Combination matches map
+     * @return false - Does not match
+     **************************************************************/
     bool Correct();
 
+    /**************************************************************
+     * @brief Set the Map object
+     * 
+     * @param map - Jumper link map
+     **************************************************************/
     void SetMap(const uint8_t *map);
+
+    /**************************************************************
+     * @brief Debug print
+     * 
+     **************************************************************/
     void PrintMap();
 
 private:
