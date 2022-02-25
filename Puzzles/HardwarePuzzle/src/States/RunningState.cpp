@@ -19,10 +19,10 @@ void RunningState::on_enter()
 
 void RunningState::on_stay()
 {
+	test_display();
 	get_user_input();
 	puzzle_finished();
 }
-
 
 void RunningState::get_user_input()
 {
@@ -40,4 +40,13 @@ void RunningState::puzzle_finished()
 void RunningState::on_exit()
 {
 	Serial.println("Exit Running\n");
+}
+
+void RunningState::test_display()
+{
+	for (int i = 0; i <= 1000; i++)
+	{
+		GpioManager::instance().set_display_value(i);
+		delay(10);
+	}
 }

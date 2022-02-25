@@ -41,4 +41,10 @@ public:
 	 * @return false When not alle banana plugs are plugged in correctly or are not coneccted.
 	 */
 	void puzzle_finished();
+
+	/**
+	 * @brief Method used for debugging.
+	 * Method can be used to check if display is functioning correctly.
+	 */
+	void test_display();
 };
