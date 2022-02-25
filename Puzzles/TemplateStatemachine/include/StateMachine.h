@@ -3,8 +3,6 @@
 #include <utility>
 #include "State.h"
 
-class State;
-
 /**
  * @brief Statemachine class used to handle all states and stateswiching.
  */
@@ -28,8 +26,10 @@ public:
 	void start_engine();
 	/**
 	 * @brief Method can be called to switch to a new state and calls the on_enter and on_exit.
+	 * 
+	 * @param eState The next state which will be swiched to.
 	 */
-	void change_state(EState);
+	void change_state(EState eState);
 	/**
 	 * @brief Method used to update the statemachine after a state swich.
 	 * This function is necessary to prevent a stack overflow by unwinding the stack.
@@ -54,11 +54,14 @@ private:
 	 * @brief Construct a new StateMachine object.
 	 */
 	StateMachine();
-	virtual ~StateMachine() = default;
+	/**
+	 * @brief Destroy the State Machine object.
+	 */
+	virtual ~StateMachine();
 
-	EState _previous_state;
-	std::map<EState, State *> _all_states;
-	std::pair<EState, State *> _current_state;
+	EState _previous_state; /*!< Previous state saved as EState. */
+	std::map<EState, State *> _all_states; /*!< All Estates and states are saved in a map. */
+	std::pair<EState, State *> _current_state; /*!< Current EState and *State saved as pair */
 
 	friend class State;
 };

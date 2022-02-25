@@ -1,3 +1,4 @@
+#include <string>
 #include <Arduino.h>
 #include "GpioManager.h"
 #include "StateMachine.h"
@@ -13,27 +14,24 @@ RunningState::~RunningState()
 
 void RunningState::on_enter()
 {
-
+	Serial.println("Enter Running");
 }
 
 void RunningState::on_stay()
 {
-	while (!check_completed())
-	{
-		get_user_input();
-	}
-
-	Serial.println("Puzzle Completed");
-	StateMachine::instance().change_state(COMPLETED);
+	get_user_input();
+	puzzle_finished();
 }
+
 
 void RunningState::get_user_input()
 {
+
 }
 
-bool RunningState::check_completed()
+void RunningState::puzzle_finished()
 {
-	return true;
+	
 }
 
 void RunningState::on_exit()

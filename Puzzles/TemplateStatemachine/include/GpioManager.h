@@ -17,15 +17,14 @@ public:
 		return INSTANCE;
 	}
 
-	/**
-	 * @brief Setting up GPIO all pins.
-	 */
-	void setup_pins();
-
 private:
 	/**
 	 * @brief Construct for Gpio Manager object.
 	 */
     GpioManager();
+	/**
+	 * @brief Destroy the Gpio Manager object
+	 * 
+	 */
     virtual ~GpioManager() = default;
 };

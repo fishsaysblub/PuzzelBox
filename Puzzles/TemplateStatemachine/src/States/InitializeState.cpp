@@ -14,14 +14,10 @@ InitializeState::~InitializeState()
 void InitializeState::on_enter()
 {
 	Serial.println("Enter Init");
-
-	// Start GPIO manager
-	GpioManager::instance();
 }
 
 void InitializeState::on_stay()
 {
-	GpioManager::instance().setup_pins();
 	StateMachine::instance().change_state(HYBERNATE);
 }
 

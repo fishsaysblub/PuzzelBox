@@ -2,7 +2,7 @@
 #include "State.h"
 
 /**
- * @brief State which handles the user playing/solving the puzzle.
+ * @brief State which handles the user playing/solving the Software puzzle.
  */
 class RunningState final : public State
 {
@@ -31,13 +31,14 @@ public:
 
 	/**
 	 * @brief Method gets the user inputs. 
+	 * These are which banana plugs are connected to wich input.
 	 */
 	void get_user_input();
 	/**
-	 * @brief Method checks if puzzle is completed.
+	 * @brief Method checks if all banana plugs are plugged in correctly.
 	 * 
-	 * @return true When solved.
-	 * @return false When not solved.
+	 * @return true When alle banana plugs are in correct input.
+	 * @return false When not alle banana plugs are plugged in correctly or are not coneccted.
 	 */
-	bool check_completed();
+	void puzzle_finished();
 };

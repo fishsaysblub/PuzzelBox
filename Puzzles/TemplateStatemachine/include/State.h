@@ -5,11 +5,12 @@
  */
 typedef enum
 {
-	INITIALIZE,
-	HYBERNATE,
-	ENTRY,
-	RUNNING,
-	COMPLETED
+	INVALID,
+	INITIALIZE, /*< Initialisation state */
+	HYBERNATE, /*< Hybernation state */
+	ENTRY, /*< Entry state */
+	RUNNING, /*< Running state */
+	COMPLETED /*< Completed state */
 } EState;
 
 /**
@@ -18,6 +19,11 @@ typedef enum
 class State
 {
 public:
+	/**
+	 * @brief Destroy the a State object.
+	 */
+	virtual ~State() = default;
+
 	/**
 	 * @brief Method is called when entering a state.
 	 */

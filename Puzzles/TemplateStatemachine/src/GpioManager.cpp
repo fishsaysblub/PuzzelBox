@@ -3,9 +3,5 @@
 
 GpioManager::GpioManager()
 {
-}
 
-void GpioManager::setup_pins()
-{
-	
 }
