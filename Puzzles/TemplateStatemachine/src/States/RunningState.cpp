@@ -31,7 +31,10 @@ void RunningState::get_user_input()
 
 void RunningState::puzzle_finished()
 {
-	
+	if (true)
+	{
+		StateMachine::instance().change_state(COMPLETED);
+	}
 }
 
 void RunningState::on_exit()
