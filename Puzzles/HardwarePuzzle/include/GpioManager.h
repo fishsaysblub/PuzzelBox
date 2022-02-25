@@ -1,7 +1,19 @@
 #pragma once
 #include <TM1637Display.h>
-#define CLK_PIN GPIO_NUM_27
-#define DATA_PIN GPIO_NUM_14
+
+//TODO: Set pins correctly
+
+#define BUZZER_PIN		  0
+
+#define DATA_PIN_BUTTONS  0
+#define CLOCK_PIN_BUTTONS 0
+#define LATCH_PIN_BUTTONS 0
+
+#define DATA_PIN_DISPLAY  GPIO_NUM_14
+#define CLOCK_PIN_DISPLAY GPIO_NUM_27
+
+#define NUMBER_OF_POTENTIOMETERS 4
+#define POTENTIOMETERS (int[NUMBER_OF_POTENTIOMETERS]){21, 22, 19, 23}
 #define MAX_BRIGHTNESS 0x0F
 
 /**
@@ -24,7 +36,7 @@ public:
 	/**
 	 * @brief Set the display value without trailing zeros at the front.
 	 * 
-	 * @param value Value displayed on the 4 digit seven segment display.
+	 * @param value Value displayed on the 4 digit seven segment display mus be from 0 to 9999.
 	 */
 	void set_display_value(int value);
 	/**
