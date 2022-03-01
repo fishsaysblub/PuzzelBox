@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/repositories/PuzzelBox/Mainboard/src/main.cpp
+/home/pi/repositories/PuzzelBox/Mainboard/include/Test.h
+
+/home/pi/repositories/PuzzelBox/Mainboard/src/Test.cpp
 stdio.h
 -
+../include/Test.h
+/home/pi/repositories/PuzzelBox/Mainboard/include/Test.h
 
