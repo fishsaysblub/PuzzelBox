@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/FirstProject.dir/src/main.cpp.o -o FirstProject 

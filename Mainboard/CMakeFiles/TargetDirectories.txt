@@ -1,0 +1,3 @@
+/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles/rebuild_cache.dir
+/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles/edit_cache.dir
+/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles/MainBoard.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/MainBoard.dir/src/main.cpp.o -o MainBoard 
