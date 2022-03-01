@@ -3,14 +3,26 @@ cmake_minimum_required(VERSION 3.0)
 project(MainBoard)
 
 set(Header_Files
-	"include/Test.h"
+	"include/StateMachine.h"
+	"include/State.h"
+	"include/States/InitializeState.h"
+	"include/States/HybernateState.h"
+	"include/States/EntryState.h"
+	"include/States/RunningState.h"
+	"include/States/CompletedState.h"
 )
 
 source_group("Header Files" FILES ${Header_Files})
 
 set(Source_Files
 	"src/main.cpp"
-	"src/Test.cpp"
+	"src/StateMachine.cpp"
+	"src/State.cpp"
+	"src/States/InitializeState.cpp"
+	"src/States/HybernateState.cpp"
+	"src/States/EntryState.cpp"
+	"src/States/RunningState.cpp"
+	"src/States/CompletedState.cpp"
 )
 
 source_group("Source Files" FILES ${Source_Files})

@@ -89,32 +89,122 @@ CMakeFiles/MainBoard.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/main.cpp -o CMakeFiles/MainBoard.dir/src/main.cpp.s
 
-CMakeFiles/MainBoard.dir/src/Test.cpp.o: CMakeFiles/MainBoard.dir/flags.make
-CMakeFiles/MainBoard.dir/src/Test.cpp.o: src/Test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MainBoard.dir/src/Test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MainBoard.dir/src/Test.cpp.o -c /home/pi/repositories/PuzzelBox/Mainboard/src/Test.cpp
+CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: CMakeFiles/MainBoard.dir/flags.make
+CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: src/StateMachine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o -c /home/pi/repositories/PuzzelBox/Mainboard/src/StateMachine.cpp
 
-CMakeFiles/MainBoard.dir/src/Test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MainBoard.dir/src/Test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/repositories/PuzzelBox/Mainboard/src/Test.cpp > CMakeFiles/MainBoard.dir/src/Test.cpp.i
+CMakeFiles/MainBoard.dir/src/StateMachine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MainBoard.dir/src/StateMachine.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/repositories/PuzzelBox/Mainboard/src/StateMachine.cpp > CMakeFiles/MainBoard.dir/src/StateMachine.cpp.i
 
-CMakeFiles/MainBoard.dir/src/Test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/Test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/Test.cpp -o CMakeFiles/MainBoard.dir/src/Test.cpp.s
+CMakeFiles/MainBoard.dir/src/StateMachine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/StateMachine.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/StateMachine.cpp -o CMakeFiles/MainBoard.dir/src/StateMachine.cpp.s
+
+CMakeFiles/MainBoard.dir/src/State.cpp.o: CMakeFiles/MainBoard.dir/flags.make
+CMakeFiles/MainBoard.dir/src/State.cpp.o: src/State.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MainBoard.dir/src/State.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MainBoard.dir/src/State.cpp.o -c /home/pi/repositories/PuzzelBox/Mainboard/src/State.cpp
+
+CMakeFiles/MainBoard.dir/src/State.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MainBoard.dir/src/State.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/repositories/PuzzelBox/Mainboard/src/State.cpp > CMakeFiles/MainBoard.dir/src/State.cpp.i
+
+CMakeFiles/MainBoard.dir/src/State.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/State.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/State.cpp -o CMakeFiles/MainBoard.dir/src/State.cpp.s
+
+CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.o: CMakeFiles/MainBoard.dir/flags.make
+CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.o: src/States/InitializeState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.o -c /home/pi/repositories/PuzzelBox/Mainboard/src/States/InitializeState.cpp
+
+CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/repositories/PuzzelBox/Mainboard/src/States/InitializeState.cpp > CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.i
+
+CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/States/InitializeState.cpp -o CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.s
+
+CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.o: CMakeFiles/MainBoard.dir/flags.make
+CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.o: src/States/HybernateState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.o -c /home/pi/repositories/PuzzelBox/Mainboard/src/States/HybernateState.cpp
+
+CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/repositories/PuzzelBox/Mainboard/src/States/HybernateState.cpp > CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.i
+
+CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/States/HybernateState.cpp -o CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.s
+
+CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.o: CMakeFiles/MainBoard.dir/flags.make
+CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.o: src/States/EntryState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.o -c /home/pi/repositories/PuzzelBox/Mainboard/src/States/EntryState.cpp
+
+CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/repositories/PuzzelBox/Mainboard/src/States/EntryState.cpp > CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.i
+
+CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/States/EntryState.cpp -o CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.s
+
+CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.o: CMakeFiles/MainBoard.dir/flags.make
+CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.o: src/States/RunningState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.o -c /home/pi/repositories/PuzzelBox/Mainboard/src/States/RunningState.cpp
+
+CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/repositories/PuzzelBox/Mainboard/src/States/RunningState.cpp > CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.i
+
+CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/States/RunningState.cpp -o CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.s
+
+CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o: CMakeFiles/MainBoard.dir/flags.make
+CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o: src/States/CompletedState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o -c /home/pi/repositories/PuzzelBox/Mainboard/src/States/CompletedState.cpp
+
+CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/repositories/PuzzelBox/Mainboard/src/States/CompletedState.cpp > CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.i
+
+CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/States/CompletedState.cpp -o CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.s
 
 # Object files for target MainBoard
 MainBoard_OBJECTS = \
 "CMakeFiles/MainBoard.dir/src/main.cpp.o" \
-"CMakeFiles/MainBoard.dir/src/Test.cpp.o"
+"CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o" \
+"CMakeFiles/MainBoard.dir/src/State.cpp.o" \
+"CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.o" \
+"CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.o" \
+"CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.o" \
+"CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.o" \
+"CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o"
 
 # External object files for target MainBoard
 MainBoard_EXTERNAL_OBJECTS =
 
 MainBoard: CMakeFiles/MainBoard.dir/src/main.cpp.o
-MainBoard: CMakeFiles/MainBoard.dir/src/Test.cpp.o
+MainBoard: CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o
+MainBoard: CMakeFiles/MainBoard.dir/src/State.cpp.o
+MainBoard: CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.o
+MainBoard: CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.o
+MainBoard: CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.o
+MainBoard: CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.o
+MainBoard: CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o
 MainBoard: CMakeFiles/MainBoard.dir/build.make
 MainBoard: CMakeFiles/MainBoard.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable MainBoard"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable MainBoard"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MainBoard.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

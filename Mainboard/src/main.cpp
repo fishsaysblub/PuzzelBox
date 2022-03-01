@@ -1,13 +1,14 @@
-#include <stdio.h>
-#include "../include/Test.h"
+#include "../include/StateMachine.h"
 
 int main()
 {
-	printf( "PuzzleController\n" );
+	// Start state machine
+	StateMachine::instance().start_engine();
 
-	Test test;
-
-	test.print();
+	while(1)
+	{
+		StateMachine::instance().update();
+	}
 
 	return 0;
 }

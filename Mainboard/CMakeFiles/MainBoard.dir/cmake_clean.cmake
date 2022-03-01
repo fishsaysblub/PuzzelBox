@@ -1,5 +1,11 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/MainBoard.dir/src/Test.cpp.o"
+  "CMakeFiles/MainBoard.dir/src/State.cpp.o"
+  "CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o"
+  "CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o"
+  "CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.o"
+  "CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.o"
+  "CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.o"
+  "CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.o"
   "CMakeFiles/MainBoard.dir/src/main.cpp.o"
   "MainBoard"
   "MainBoard.pdb"

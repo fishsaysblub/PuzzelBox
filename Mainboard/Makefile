@@ -142,32 +142,194 @@ MainBoard/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/build
 .PHONY : MainBoard/fast
 
-src/Test.o: src/Test.cpp.o
+src/State.o: src/State.cpp.o
 
-.PHONY : src/Test.o
+.PHONY : src/State.o
 
 # target to build an object file
-src/Test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/Test.cpp.o
-.PHONY : src/Test.cpp.o
+src/State.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/State.cpp.o
+.PHONY : src/State.cpp.o
 
-src/Test.i: src/Test.cpp.i
+src/State.i: src/State.cpp.i
 
-.PHONY : src/Test.i
+.PHONY : src/State.i
 
 # target to preprocess a source file
-src/Test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/Test.cpp.i
-.PHONY : src/Test.cpp.i
+src/State.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/State.cpp.i
+.PHONY : src/State.cpp.i
 
-src/Test.s: src/Test.cpp.s
+src/State.s: src/State.cpp.s
 
-.PHONY : src/Test.s
+.PHONY : src/State.s
 
 # target to generate assembly for a file
-src/Test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/Test.cpp.s
-.PHONY : src/Test.cpp.s
+src/State.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/State.cpp.s
+.PHONY : src/State.cpp.s
+
+src/StateMachine.o: src/StateMachine.cpp.o
+
+.PHONY : src/StateMachine.o
+
+# target to build an object file
+src/StateMachine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o
+.PHONY : src/StateMachine.cpp.o
+
+src/StateMachine.i: src/StateMachine.cpp.i
+
+.PHONY : src/StateMachine.i
+
+# target to preprocess a source file
+src/StateMachine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/StateMachine.cpp.i
+.PHONY : src/StateMachine.cpp.i
+
+src/StateMachine.s: src/StateMachine.cpp.s
+
+.PHONY : src/StateMachine.s
+
+# target to generate assembly for a file
+src/StateMachine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/StateMachine.cpp.s
+.PHONY : src/StateMachine.cpp.s
+
+src/States/CompletedState.o: src/States/CompletedState.cpp.o
+
+.PHONY : src/States/CompletedState.o
+
+# target to build an object file
+src/States/CompletedState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o
+.PHONY : src/States/CompletedState.cpp.o
+
+src/States/CompletedState.i: src/States/CompletedState.cpp.i
+
+.PHONY : src/States/CompletedState.i
+
+# target to preprocess a source file
+src/States/CompletedState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.i
+.PHONY : src/States/CompletedState.cpp.i
+
+src/States/CompletedState.s: src/States/CompletedState.cpp.s
+
+.PHONY : src/States/CompletedState.s
+
+# target to generate assembly for a file
+src/States/CompletedState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.s
+.PHONY : src/States/CompletedState.cpp.s
+
+src/States/EntryState.o: src/States/EntryState.cpp.o
+
+.PHONY : src/States/EntryState.o
+
+# target to build an object file
+src/States/EntryState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.o
+.PHONY : src/States/EntryState.cpp.o
+
+src/States/EntryState.i: src/States/EntryState.cpp.i
+
+.PHONY : src/States/EntryState.i
+
+# target to preprocess a source file
+src/States/EntryState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.i
+.PHONY : src/States/EntryState.cpp.i
+
+src/States/EntryState.s: src/States/EntryState.cpp.s
+
+.PHONY : src/States/EntryState.s
+
+# target to generate assembly for a file
+src/States/EntryState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.s
+.PHONY : src/States/EntryState.cpp.s
+
+src/States/HybernateState.o: src/States/HybernateState.cpp.o
+
+.PHONY : src/States/HybernateState.o
+
+# target to build an object file
+src/States/HybernateState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.o
+.PHONY : src/States/HybernateState.cpp.o
+
+src/States/HybernateState.i: src/States/HybernateState.cpp.i
+
+.PHONY : src/States/HybernateState.i
+
+# target to preprocess a source file
+src/States/HybernateState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.i
+.PHONY : src/States/HybernateState.cpp.i
+
+src/States/HybernateState.s: src/States/HybernateState.cpp.s
+
+.PHONY : src/States/HybernateState.s
+
+# target to generate assembly for a file
+src/States/HybernateState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.s
+.PHONY : src/States/HybernateState.cpp.s
+
+src/States/InitializeState.o: src/States/InitializeState.cpp.o
+
+.PHONY : src/States/InitializeState.o
+
+# target to build an object file
+src/States/InitializeState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.o
+.PHONY : src/States/InitializeState.cpp.o
+
+src/States/InitializeState.i: src/States/InitializeState.cpp.i
+
+.PHONY : src/States/InitializeState.i
+
+# target to preprocess a source file
+src/States/InitializeState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.i
+.PHONY : src/States/InitializeState.cpp.i
+
+src/States/InitializeState.s: src/States/InitializeState.cpp.s
+
+.PHONY : src/States/InitializeState.s
+
+# target to generate assembly for a file
+src/States/InitializeState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.s
+.PHONY : src/States/InitializeState.cpp.s
+
+src/States/RunningState.o: src/States/RunningState.cpp.o
+
+.PHONY : src/States/RunningState.o
+
+# target to build an object file
+src/States/RunningState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.o
+.PHONY : src/States/RunningState.cpp.o
+
+src/States/RunningState.i: src/States/RunningState.cpp.i
+
+.PHONY : src/States/RunningState.i
+
+# target to preprocess a source file
+src/States/RunningState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.i
+.PHONY : src/States/RunningState.cpp.i
+
+src/States/RunningState.s: src/States/RunningState.cpp.s
+
+.PHONY : src/States/RunningState.s
+
+# target to generate assembly for a file
+src/States/RunningState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.s
+.PHONY : src/States/RunningState.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -205,9 +367,27 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MainBoard"
-	@echo "... src/Test.o"
-	@echo "... src/Test.i"
-	@echo "... src/Test.s"
+	@echo "... src/State.o"
+	@echo "... src/State.i"
+	@echo "... src/State.s"
+	@echo "... src/StateMachine.o"
+	@echo "... src/StateMachine.i"
+	@echo "... src/StateMachine.s"
+	@echo "... src/States/CompletedState.o"
+	@echo "... src/States/CompletedState.i"
+	@echo "... src/States/CompletedState.s"
+	@echo "... src/States/EntryState.o"
+	@echo "... src/States/EntryState.i"
+	@echo "... src/States/EntryState.s"
+	@echo "... src/States/HybernateState.o"
+	@echo "... src/States/HybernateState.i"
+	@echo "... src/States/HybernateState.s"
+	@echo "... src/States/InitializeState.o"
+	@echo "... src/States/InitializeState.i"
+	@echo "... src/States/InitializeState.s"
+	@echo "... src/States/RunningState.o"
+	@echo "... src/States/RunningState.i"
+	@echo "... src/States/RunningState.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
