@@ -196,6 +196,33 @@ src/StateMachine.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/StateMachine.cpp.s
 .PHONY : src/StateMachine.cpp.s
 
+src/States/CheckState.o: src/States/CheckState.cpp.o
+
+.PHONY : src/States/CheckState.o
+
+# target to build an object file
+src/States/CheckState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/CheckState.cpp.o
+.PHONY : src/States/CheckState.cpp.o
+
+src/States/CheckState.i: src/States/CheckState.cpp.i
+
+.PHONY : src/States/CheckState.i
+
+# target to preprocess a source file
+src/States/CheckState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/CheckState.cpp.i
+.PHONY : src/States/CheckState.cpp.i
+
+src/States/CheckState.s: src/States/CheckState.cpp.s
+
+.PHONY : src/States/CheckState.s
+
+# target to generate assembly for a file
+src/States/CheckState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/CheckState.cpp.s
+.PHONY : src/States/CheckState.cpp.s
+
 src/States/CompletedState.o: src/States/CompletedState.cpp.o
 
 .PHONY : src/States/CompletedState.o
@@ -222,60 +249,6 @@ src/States/CompletedState.s: src/States/CompletedState.cpp.s
 src/States/CompletedState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.s
 .PHONY : src/States/CompletedState.cpp.s
-
-src/States/EntryState.o: src/States/EntryState.cpp.o
-
-.PHONY : src/States/EntryState.o
-
-# target to build an object file
-src/States/EntryState.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.o
-.PHONY : src/States/EntryState.cpp.o
-
-src/States/EntryState.i: src/States/EntryState.cpp.i
-
-.PHONY : src/States/EntryState.i
-
-# target to preprocess a source file
-src/States/EntryState.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.i
-.PHONY : src/States/EntryState.cpp.i
-
-src/States/EntryState.s: src/States/EntryState.cpp.s
-
-.PHONY : src/States/EntryState.s
-
-# target to generate assembly for a file
-src/States/EntryState.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.s
-.PHONY : src/States/EntryState.cpp.s
-
-src/States/HybernateState.o: src/States/HybernateState.cpp.o
-
-.PHONY : src/States/HybernateState.o
-
-# target to build an object file
-src/States/HybernateState.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.o
-.PHONY : src/States/HybernateState.cpp.o
-
-src/States/HybernateState.i: src/States/HybernateState.cpp.i
-
-.PHONY : src/States/HybernateState.i
-
-# target to preprocess a source file
-src/States/HybernateState.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.i
-.PHONY : src/States/HybernateState.cpp.i
-
-src/States/HybernateState.s: src/States/HybernateState.cpp.s
-
-.PHONY : src/States/HybernateState.s
-
-# target to generate assembly for a file
-src/States/HybernateState.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.s
-.PHONY : src/States/HybernateState.cpp.s
 
 src/States/InitializeState.o: src/States/InitializeState.cpp.o
 
@@ -373,15 +346,12 @@ help:
 	@echo "... src/StateMachine.o"
 	@echo "... src/StateMachine.i"
 	@echo "... src/StateMachine.s"
+	@echo "... src/States/CheckState.o"
+	@echo "... src/States/CheckState.i"
+	@echo "... src/States/CheckState.s"
 	@echo "... src/States/CompletedState.o"
 	@echo "... src/States/CompletedState.i"
 	@echo "... src/States/CompletedState.s"
-	@echo "... src/States/EntryState.o"
-	@echo "... src/States/EntryState.i"
-	@echo "... src/States/EntryState.s"
-	@echo "... src/States/HybernateState.o"
-	@echo "... src/States/HybernateState.i"
-	@echo "... src/States/HybernateState.s"
 	@echo "... src/States/InitializeState.o"
 	@echo "... src/States/InitializeState.i"
 	@echo "... src/States/InitializeState.s"

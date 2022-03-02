@@ -5,27 +5,21 @@ CMakeFiles/MainBoard.dir/src/State.cpp.o: src/State.cpp
 
 CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: include/State.h
 CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: include/StateMachine.h
+CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: include/States/CheckState.h
 CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: include/States/CompletedState.h
-CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: include/States/EntryState.h
-CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: include/States/HybernateState.h
 CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: include/States/InitializeState.h
 CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: include/States/RunningState.h
 CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: src/StateMachine.cpp
+
+CMakeFiles/MainBoard.dir/src/States/CheckState.cpp.o: include/State.h
+CMakeFiles/MainBoard.dir/src/States/CheckState.cpp.o: include/StateMachine.h
+CMakeFiles/MainBoard.dir/src/States/CheckState.cpp.o: include/States/CheckState.h
+CMakeFiles/MainBoard.dir/src/States/CheckState.cpp.o: src/States/CheckState.cpp
 
 CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o: include/State.h
 CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o: include/StateMachine.h
 CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o: include/States/CompletedState.h
 CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o: src/States/CompletedState.cpp
-
-CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.o: include/State.h
-CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.o: include/StateMachine.h
-CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.o: include/States/EntryState.h
-CMakeFiles/MainBoard.dir/src/States/EntryState.cpp.o: src/States/EntryState.cpp
-
-CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.o: include/State.h
-CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.o: include/StateMachine.h
-CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.o: include/States/HybernateState.h
-CMakeFiles/MainBoard.dir/src/States/HybernateState.cpp.o: src/States/HybernateState.cpp
 
 CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.o: include/State.h
 CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.o: include/StateMachine.h

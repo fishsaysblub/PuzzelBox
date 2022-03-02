@@ -6,8 +6,7 @@ set(Header_Files
 	"include/StateMachine.h"
 	"include/State.h"
 	"include/States/InitializeState.h"
-	"include/States/HybernateState.h"
-	"include/States/EntryState.h"
+	"include/States/CheckState.h"
 	"include/States/RunningState.h"
 	"include/States/CompletedState.h"
 )
@@ -19,8 +18,7 @@ set(Source_Files
 	"src/StateMachine.cpp"
 	"src/State.cpp"
 	"src/States/InitializeState.cpp"
-	"src/States/HybernateState.cpp"
-	"src/States/EntryState.cpp"
+	"src/States/CheckState.cpp"
 	"src/States/RunningState.cpp"
 	"src/States/CompletedState.cpp"
 )

@@ -17,7 +17,7 @@ void InitializeState::on_enter()
 
 void InitializeState::on_stay()
 {
-	StateMachine::instance().change_state(HYBERNATE);
+	StateMachine::instance().change_state(CHECK);
 }
 
 void InitializeState::on_exit()

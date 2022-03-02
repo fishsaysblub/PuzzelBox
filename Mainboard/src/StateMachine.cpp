@@ -1,8 +1,7 @@
 #include "../include/States/InitializeState.h"
 #include "../include/States/CompletedState.h"
-#include "../include/States/HybernateState.h"
 #include "../include/States/RunningState.h"
-#include "../include/States/EntryState.h"
+#include "../include/States/CheckState.h"
 #include "../include/StateMachine.h"
 #include "../include/State.h"
 #include <stdio.h>
@@ -12,8 +11,7 @@ StateMachine::StateMachine() :
 	_all_states(
 	{
 	   	{INITIALIZE, new InitializeState},
-	 	{HYBERNATE, new HybernateState},
-		{ENTRY, new EntryState},
+	 	{CHECK, new CheckState},
 		{RUNNING, new RunningState},
 		{COMPLETED, new CompletedState}
 	}),
@@ -24,15 +22,14 @@ StateMachine::StateMachine() :
 StateMachine::~StateMachine()
 {
 	delete _all_states[INITIALIZE];
-	delete _all_states[HYBERNATE];
-	delete _all_states[ENTRY];
+	delete _all_states[CHECK];
 	delete _all_states[RUNNING];
 	delete _all_states[COMPLETED];
 }
 
 void StateMachine::start_engine()
 {
-	printf("Start engine\n");
+	printf("Start engine\n\n");
 	change_state(INITIALIZE);
 }
 

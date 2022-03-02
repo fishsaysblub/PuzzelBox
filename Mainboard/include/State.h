@@ -7,8 +7,7 @@ typedef enum
 {
 	INVALID,
 	INITIALIZE, /*< Initialisation state */
-	HYBERNATE, /*< Hybernation state */
-	ENTRY, /*< Entry state */
+	CHECK, /*< Check puzzles state */
 	RUNNING, /*< Running state */
 	COMPLETED /*< Completed state */
 } EState;
