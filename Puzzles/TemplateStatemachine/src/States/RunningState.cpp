@@ -29,7 +29,7 @@ void RunningState::get_user_input()
 
 }
 
-void RunningState::puzzle_finished()
+void RunningState::puzzle_finished_check()
 {
 	if (true)
 	{
