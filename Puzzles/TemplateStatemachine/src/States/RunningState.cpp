@@ -20,7 +20,7 @@ void RunningState::on_enter()
 void RunningState::on_stay()
 {
 	get_user_input();
-	puzzle_finished();
+	check_puzzle_finished();
 }
 
 

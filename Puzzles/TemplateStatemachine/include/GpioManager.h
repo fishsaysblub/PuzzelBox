@@ -17,6 +17,11 @@ public:
 		return INSTANCE;
 	}
 
+	/**
+	 * @brief Method sets esp32 into sleep mode.
+	 */
+	void start_esp_sleep();
+
 private:
 	/**
 	 * @brief Construct for Gpio Manager object.

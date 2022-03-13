@@ -35,10 +35,7 @@ public:
 	 */
 	void get_user_input();
 	/**
-	 * @brief Method checks if all banana plugs are plugged in correctly.
-	 * 
-	 * @return true When alle banana plugs are in correct input.
-	 * @return false When not alle banana plugs are plugged in correctly or are not coneccted.
+	 * @brief Method checks if puzzle is finished if finished state is switched to completed.
 	 */
-	void puzzle_finished();
+	void check_puzzle_finished();
 };
