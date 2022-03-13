@@ -14,6 +14,7 @@ InitializeState::~InitializeState()
 void InitializeState::on_enter()
 {
 	Serial.println("Enter Init");
+	// TODO Setup COM
 }
 
 void InitializeState::on_stay()

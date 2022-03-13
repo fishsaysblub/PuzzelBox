@@ -13,6 +13,7 @@ CompletedState::~CompletedState()
 void CompletedState::on_enter()
 {
 	Serial.println("Enter Completed");
+	// TODO Update mainboard of complete
 }
 
 void CompletedState::on_stay()
