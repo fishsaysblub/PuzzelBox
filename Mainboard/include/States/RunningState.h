@@ -1,8 +1,10 @@
 #pragma once
 #include "../State.h"
 
+#define NUMBER_OF_PUZZLES 5
+
 /**
- * @brief State which handles the user playing/solving the Software puzzle.
+ * @brief State which handles the user playing/solving the puzzles.
  */
 class RunningState final : public State
 {
@@ -34,7 +36,15 @@ public:
 	 */
 	void get_user_input();
 	/**
-	 * @brief Method checks if puzzle is completed.
+	 * @brief Method renders leds strips dependant on user inputs.
 	 */
-	void puzzle_finished();
+	void render_ledstrip();
+	/**
+	 * @brief Method checks if all puzzles are completed.
+	 */
+	void are_puzzles_finished();
+
+private:
+	bool _box_is_on_surface; /*!< A boolean which is true if the box is on a surface and false if the box is lifted off a surface. */
+	bool _puzzles_finished_list[NUMBER_OF_PUZZLES]; /*!< List where which saves for each puzzle if it is completed. */
 };

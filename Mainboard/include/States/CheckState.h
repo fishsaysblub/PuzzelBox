@@ -26,4 +26,11 @@ public:
 	 */
 	virtual void on_exit()  override;
     
+	/**
+	 * @brief Method checks if all 5 puzzles are ready.
+	 * 
+	 * @return true If all puzzles are ready.
+	 * @return false If less than 5 puzzles are ready.
+	 */
+	bool check_if_puzzles_are_ready();
 };

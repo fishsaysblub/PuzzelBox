@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/MainBoard.dir/src/GpioManager.cpp.o"
   "CMakeFiles/MainBoard.dir/src/State.cpp.o"
   "CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o"
   "CMakeFiles/MainBoard.dir/src/States/CheckState.cpp.o"

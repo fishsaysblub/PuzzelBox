@@ -89,22 +89,9 @@ CMakeFiles/MainBoard.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/main.cpp -o CMakeFiles/MainBoard.dir/src/main.cpp.s
 
-CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: CMakeFiles/MainBoard.dir/flags.make
-CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: src/StateMachine.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o -c /home/pi/repositories/PuzzelBox/Mainboard/src/StateMachine.cpp
-
-CMakeFiles/MainBoard.dir/src/StateMachine.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MainBoard.dir/src/StateMachine.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/repositories/PuzzelBox/Mainboard/src/StateMachine.cpp > CMakeFiles/MainBoard.dir/src/StateMachine.cpp.i
-
-CMakeFiles/MainBoard.dir/src/StateMachine.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/StateMachine.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/StateMachine.cpp -o CMakeFiles/MainBoard.dir/src/StateMachine.cpp.s
-
 CMakeFiles/MainBoard.dir/src/State.cpp.o: CMakeFiles/MainBoard.dir/flags.make
 CMakeFiles/MainBoard.dir/src/State.cpp.o: src/State.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MainBoard.dir/src/State.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MainBoard.dir/src/State.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MainBoard.dir/src/State.cpp.o -c /home/pi/repositories/PuzzelBox/Mainboard/src/State.cpp
 
 CMakeFiles/MainBoard.dir/src/State.cpp.i: cmake_force
@@ -114,6 +101,19 @@ CMakeFiles/MainBoard.dir/src/State.cpp.i: cmake_force
 CMakeFiles/MainBoard.dir/src/State.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/State.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/State.cpp -o CMakeFiles/MainBoard.dir/src/State.cpp.s
+
+CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: CMakeFiles/MainBoard.dir/flags.make
+CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o: src/StateMachine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o -c /home/pi/repositories/PuzzelBox/Mainboard/src/StateMachine.cpp
+
+CMakeFiles/MainBoard.dir/src/StateMachine.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MainBoard.dir/src/StateMachine.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/repositories/PuzzelBox/Mainboard/src/StateMachine.cpp > CMakeFiles/MainBoard.dir/src/StateMachine.cpp.i
+
+CMakeFiles/MainBoard.dir/src/StateMachine.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/StateMachine.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/StateMachine.cpp -o CMakeFiles/MainBoard.dir/src/StateMachine.cpp.s
 
 CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.o: CMakeFiles/MainBoard.dir/flags.make
 CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.o: src/States/InitializeState.cpp
@@ -167,30 +167,45 @@ CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/States/CompletedState.cpp -o CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.s
 
+CMakeFiles/MainBoard.dir/src/GpioManager.cpp.o: CMakeFiles/MainBoard.dir/flags.make
+CMakeFiles/MainBoard.dir/src/GpioManager.cpp.o: src/GpioManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/MainBoard.dir/src/GpioManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MainBoard.dir/src/GpioManager.cpp.o -c /home/pi/repositories/PuzzelBox/Mainboard/src/GpioManager.cpp
+
+CMakeFiles/MainBoard.dir/src/GpioManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MainBoard.dir/src/GpioManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/repositories/PuzzelBox/Mainboard/src/GpioManager.cpp > CMakeFiles/MainBoard.dir/src/GpioManager.cpp.i
+
+CMakeFiles/MainBoard.dir/src/GpioManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MainBoard.dir/src/GpioManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/repositories/PuzzelBox/Mainboard/src/GpioManager.cpp -o CMakeFiles/MainBoard.dir/src/GpioManager.cpp.s
+
 # Object files for target MainBoard
 MainBoard_OBJECTS = \
 "CMakeFiles/MainBoard.dir/src/main.cpp.o" \
-"CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o" \
 "CMakeFiles/MainBoard.dir/src/State.cpp.o" \
+"CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o" \
 "CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.o" \
 "CMakeFiles/MainBoard.dir/src/States/CheckState.cpp.o" \
 "CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.o" \
-"CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o"
+"CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o" \
+"CMakeFiles/MainBoard.dir/src/GpioManager.cpp.o"
 
 # External object files for target MainBoard
 MainBoard_EXTERNAL_OBJECTS =
 
 MainBoard: CMakeFiles/MainBoard.dir/src/main.cpp.o
-MainBoard: CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o
 MainBoard: CMakeFiles/MainBoard.dir/src/State.cpp.o
+MainBoard: CMakeFiles/MainBoard.dir/src/StateMachine.cpp.o
 MainBoard: CMakeFiles/MainBoard.dir/src/States/InitializeState.cpp.o
 MainBoard: CMakeFiles/MainBoard.dir/src/States/CheckState.cpp.o
 MainBoard: CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.o
 MainBoard: CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o
+MainBoard: CMakeFiles/MainBoard.dir/src/GpioManager.cpp.o
 MainBoard: CMakeFiles/MainBoard.dir/build.make
 MainBoard: /usr/local/lib/libwiringPi.so
 MainBoard: CMakeFiles/MainBoard.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable MainBoard"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable MainBoard"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MainBoard.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

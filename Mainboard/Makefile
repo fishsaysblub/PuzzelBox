@@ -142,6 +142,33 @@ MainBoard/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/build
 .PHONY : MainBoard/fast
 
+src/GpioManager.o: src/GpioManager.cpp.o
+
+.PHONY : src/GpioManager.o
+
+# target to build an object file
+src/GpioManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/GpioManager.cpp.o
+.PHONY : src/GpioManager.cpp.o
+
+src/GpioManager.i: src/GpioManager.cpp.i
+
+.PHONY : src/GpioManager.i
+
+# target to preprocess a source file
+src/GpioManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/GpioManager.cpp.i
+.PHONY : src/GpioManager.cpp.i
+
+src/GpioManager.s: src/GpioManager.cpp.s
+
+.PHONY : src/GpioManager.s
+
+# target to generate assembly for a file
+src/GpioManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MainBoard.dir/build.make CMakeFiles/MainBoard.dir/src/GpioManager.cpp.s
+.PHONY : src/GpioManager.cpp.s
+
 src/State.o: src/State.cpp.o
 
 .PHONY : src/State.o
@@ -340,6 +367,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MainBoard"
+	@echo "... src/GpioManager.o"
+	@echo "... src/GpioManager.i"
+	@echo "... src/GpioManager.s"
 	@echo "... src/State.o"
 	@echo "... src/State.i"
 	@echo "... src/State.s"
