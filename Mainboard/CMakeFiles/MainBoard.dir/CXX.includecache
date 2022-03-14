@@ -16,17 +16,11 @@ utility
 State.h
 /home/pi/repositories/PuzzelBox/Mainboard/include/State.h
 
-/home/pi/repositories/PuzzelBox/Mainboard/include/States/CompletedState.h
-../State.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/State.h
-
-/home/pi/repositories/PuzzelBox/Mainboard/src/States/CompletedState.cpp
-../../include/States/CompletedState.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/States/CompletedState.h
-../../include/StateMachine.h
+/home/pi/repositories/PuzzelBox/Mainboard/src/main.cpp
+wiringPi.h
+-
+iostream
+-
+../include/StateMachine.h
 /home/pi/repositories/PuzzelBox/Mainboard/include/StateMachine.h
-unistd.h
--
-stdio.h
--
 

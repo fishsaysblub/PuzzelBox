@@ -188,6 +188,7 @@ MainBoard: CMakeFiles/MainBoard.dir/src/States/CheckState.cpp.o
 MainBoard: CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.o
 MainBoard: CMakeFiles/MainBoard.dir/src/States/CompletedState.cpp.o
 MainBoard: CMakeFiles/MainBoard.dir/build.make
+MainBoard: /usr/local/lib/libwiringPi.so
 MainBoard: CMakeFiles/MainBoard.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/repositories/PuzzelBox/Mainboard/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable MainBoard"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MainBoard.dir/link.txt --verbose=$(VERBOSE)

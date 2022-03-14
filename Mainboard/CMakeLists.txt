@@ -30,3 +30,14 @@ add_executable(
     ${Header_Files}
     ${Source_Files}
 )
+
+# Locate libraries and headers
+find_package(WiringPi REQUIRED)
+find_package(Threads REQUIRED) 
+
+# Include headers
+include_directories(${WIRINGPI_INCLUDE_DIRS}) 
+
+# Link against libraries
+target_link_libraries(MainBoard ${WIRINGPI_LIBRARIES}) 
+target_link_libraries(MainBoard ${CMAKE_THREAD_LIBS_INIT}) 
