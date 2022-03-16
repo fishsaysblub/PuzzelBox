@@ -49,12 +49,6 @@ public:
 	 * @return false When not alle banana plugs are plugged in correctly or are not coneccted.
 	 */
 	void puzzle_finished();
-	/**
-	 * @brief Method displays a uint16_t value in binary on 16 leds trough two cascaded shiftregisters.
-	 * 
-	 * @param value Integer value which is converted to binary and rendered.
-	 */
-	void render_leds(uint16_t value);
 
 	/**
 	 * @brief Method used for debugging.
@@ -67,17 +61,7 @@ public:
 	 */
 	void test_leds_and_shiftregisters();
 
-private:
-	/**
-	 * @brief Union used to split unit16_t value into two bytes for each shiftresiter.
-	 */
-	union LedValues
-	{
-		uint16_t value; /*!< Value which will be displayed over 16 leds. */
-		uint8_t byteOne; /*<! First eight bits of 16 bit value */
-		uint8_t byteTwo; /*<! Seccond eight bits of 16 bit value */
-	};
-	
+private:	
 	Utils _utils; /*!< Utility instance used in a test function. */
 
 	int _check_list[6]; /*!< An array used to check if all banana plugs are connected at the right position. */
