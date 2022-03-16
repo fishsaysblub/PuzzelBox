@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include "GpioManager.h"
 #include "StateMachine.h"
 #include "States/HybernateState.h"
 
@@ -18,7 +19,7 @@ void HybernateState::on_enter()
 void HybernateState::on_stay()
 {
 	Serial.println("Hybernating...");
-	delay(1000); //TODO: Add real esp sleep function
+	GpioManager::instance().start_esp_sleep();
 	on_awake();
 }
 
