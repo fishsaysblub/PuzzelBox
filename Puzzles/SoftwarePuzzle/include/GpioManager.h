@@ -40,9 +40,9 @@ public:
 	}
 
 	/**
-	 * @brief Method initializes the shiftregister.
+	 * @brief Method initializes the two cascaded shiftregisters which control 16 leds.
 	 */
-	void initialize_shiftregister();
+	void initialize_ledController();
 	/**
 	 * @brief Method displays a uint16_t value in binary on 16 leds trough two cascaded shiftregisters.
 	 * 
@@ -76,8 +76,12 @@ public:
 	 * @return int Returns the value from the input pin.
 	 */
 	int get_input_pin_value(int index);
-	
-	
+	/**
+	 * @brief Sets an output pin.
+	 * 
+	 * @param index Index of pin which will be changed.
+	 * @param value Value written to pin.
+	 */
 	void set_output_pin(int index, bool value);
 
 private:

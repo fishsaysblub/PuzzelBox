@@ -17,7 +17,7 @@ GpioManager::GpioManager()
 	pinMode(LATCH_PIN, OUTPUT);
 }
 
-void GpioManager::initialize_shiftregister()
+void GpioManager::initialize_ledController()
 {
 	digitalWrite(MR_PIN, HIGH);
 	digitalWrite(OE_PIN, LOW);

@@ -36,7 +36,6 @@ public:
 	 * @param ouput_array Array used to set _correct_output array.
 	 */
 	void set_correct_output(int *ouput_array);
-
 	/**
 	 * @brief Method gets the user inputs. 
 	 * These are which banana plugs are connected to wich input.

@@ -82,7 +82,7 @@ void RunningState::puzzle_finished()
 		test_leds_and_shiftregisters();
 	}
 
-	GpioManager::instance().render_leds(21845); //TODO: Add real dismantle codes
+	GpioManager::instance().render_leds(21845); // TODO: Add real dismantle codes
 	StateMachine::instance().change_state(COMPLETED);
 }
 
