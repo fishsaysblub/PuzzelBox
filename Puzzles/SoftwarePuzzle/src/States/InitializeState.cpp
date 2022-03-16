@@ -18,6 +18,7 @@ void InitializeState::on_enter()
 
 void InitializeState::on_stay()
 {
+	GpioManager::instance().initialize_shiftregister();
 	StateMachine::instance().change_state(HYBERNATE);
 }
 

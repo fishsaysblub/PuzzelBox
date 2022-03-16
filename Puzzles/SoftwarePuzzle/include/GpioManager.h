@@ -9,7 +9,18 @@
  * 
  **************************************************************/
 #pragma once
+
 #define PIN_COUNT_IO 6
+
+#define MR_PIN 2
+#define OE_PIN 26
+
+#define CLK_PIN 14
+#define DATA_PIN 27
+#define LATCH_PIN 13
+
+#define INPUTS (int[6]){39,36,35,34,38,37}
+#define OUTPUTS (int[6]){25,19,23,18,10,9}
 
 /**
  * @brief Class used to manage all IO.
@@ -29,38 +40,49 @@ public:
 	}
 
 	/**
-	 * @brief Get the data pin.
-	 * 
-	 * @return int returns the data pin number.
+	 * @brief Method initializes the two cascaded shiftregisters which control 16 leds.
 	 */
-    int get_data_pin();
+	void initialize_ledController();
 	/**
-	 * @brief Get the clock pin number.
+	 * @brief Method displays a uint16_t value in binary on 16 leds trough two cascaded shiftregisters.
 	 * 
-	 * @return int returns the clock pin number.
+	 * @param value Integer value which is converted to binary and rendered.
 	 */
-	int get_clock_pin();
+	void render_leds( uint16_t value);
+
 	/**
-	 * @brief Get the latch pin.
+	 * @brief Set the clk pin with value.
 	 * 
-	 * @return int returns the latch pin number.
+	 * @param value Value writen to pin.
 	 */
-	int get_latch_pin();
+    void set_clk_pin( bool value );
+	/**
+	 * @brief Set the data pin with value.
+	 * 
+	 * @param value Value writen to pin.
+	 */
+    void set_data_pin( bool value );
+	/**
+	 * @brief Set the latch pin with value.
+	 * 
+	 * @param value Value writen to pin.
+	 */
+    void set_latch_pin( bool value );
 	
 	/**
-	 * @brief Get the input pin from _input_pins[]
+	 * @brief Get the value from an input pin from INPUTS[].
 	 * 
-	 * @param index The index is used to select the pin from array.
-	 * @return int Returns the selected input pin number.
+	 * @param index The index is used to select the pin from the input array.
+	 * @return int Returns the value from the input pin.
 	 */
-	int get_input_pin( int index );
+	int get_input_pin_value(int index);
 	/**
-	 * @brief Get the output pin object
+	 * @brief Sets an output pin.
 	 * 
-	 * @param index 
-	 * @return int 
+	 * @param index Index of pin which will be changed.
+	 * @param value Value written to pin.
 	 */
-	int get_output_pin( int index );
+	void set_output_pin(int index, bool value);
 
 private:
 	/**
@@ -73,10 +95,13 @@ private:
 	 */
     virtual ~GpioManager() = default;
 
-	int _data_pin; /*!< Pin used to send the data to shiftregister. */
-	int _clock_pin; /*!< Pin used to clock in the data to the shiftregsiter. */
-	int _latch_pin; /*!< Pin used display data in shiftregister to output pins. */
-	
-	int _input_pins[6]; /*!< Array of input pins. */
-	int _output_pins[6]; /*!< Array of output pins. */
+	/**
+	 * @brief Union used to split unit16_t value into two bytes for each shiftresiter.
+	 */
+	union LedValues
+	{
+		uint16_t value; /*!< Value which will be displayed over 16 leds. */
+		uint8_t byte_one; /*<! First eight bits of 16 bit value */
+		uint8_t byte_two; /*<! Seccond eight bits of 16 bit value */
+	};
 };

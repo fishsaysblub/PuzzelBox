@@ -1,59 +1,68 @@
 #include <Arduino.h>
 #include "GpioManager.h"
 
-GpioManager::GpioManager():
-	_data_pin(27),
-	_clock_pin(14),
-	_latch_pin((13)),
-	_input_pins{9,35,34,36,39,25},
-	_output_pins{21,22,19,23,18,5}
+GpioManager::GpioManager()
 {
 	for(int i = 0; i < PIN_COUNT_IO; i++)
 	{
-		pinMode(_input_pins[i], INPUT);
-		pinMode(_output_pins[i], OUTPUT);
+		pinMode(INPUTS[i], INPUT);
+		pinMode(OUTPUTS[i], OUTPUT);
 	}
 
-	pinMode(_data_pin, OUTPUT);
-	pinMode(_clock_pin, OUTPUT);
-	pinMode(_latch_pin, OUTPUT);
+	pinMode(OE_PIN, OUTPUT);
+	pinMode(MR_PIN, OUTPUT);
+
+	pinMode(CLK_PIN, OUTPUT);
+	pinMode(DATA_PIN, OUTPUT);
+	pinMode(LATCH_PIN, OUTPUT);
 }
 
-int GpioManager::get_data_pin()
+void GpioManager::initialize_ledController()
 {
-	return _data_pin;
+	digitalWrite(MR_PIN, HIGH);
+	digitalWrite(OE_PIN, LOW);
 }
 
-int GpioManager::get_clock_pin()
+void GpioManager::set_clk_pin(bool value)
 {
-	return _clock_pin;
+	digitalWrite(CLK_PIN, value);
 }
 
-int GpioManager::get_latch_pin()
+void GpioManager::set_data_pin(bool value)
 {
-	return _latch_pin;
+	digitalWrite(DATA_PIN, value);
 }
 
-int GpioManager::get_input_pin( int index )
+void GpioManager::set_latch_pin(bool value)
 {
-	if ( index < PIN_COUNT_IO )
+	digitalWrite(LATCH_PIN, value);
+}
+
+int GpioManager::get_input_pin_value(int index)
+{
+	if (index < PIN_COUNT_IO)
 	{
-		return _input_pins[index];
-	}
-	else
-	{
-		return -1;
+		return digitalRead(INPUTS[index]);
 	}
 }
 
-int GpioManager::get_output_pin( int index )
+void GpioManager::set_output_pin(int index, bool value)
 {
-	if ( index < PIN_COUNT_IO )
+	if (index < PIN_COUNT_IO)
 	{
-		return _output_pins[index];
+		digitalWrite(OUTPUTS[index], value);
 	}
-	else
-	{
-		return -1;
-	}
+}
+
+void GpioManager::render_leds(uint16_t value)
+{
+	LedValues ledValues;
+	ledValues.value = value;
+
+	digitalWrite(LATCH_PIN, LOW);
+
+	shiftOut(DATA_PIN, CLK_PIN, MSBFIRST, ledValues.byte_one);
+	shiftOut(DATA_PIN, CLK_PIN, MSBFIRST, ledValues.byte_two);
+
+	digitalWrite(LATCH_PIN, HIGH);
 }
