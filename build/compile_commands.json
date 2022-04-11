@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/jef/Git/PuzzelBox/build",
+  "command": "/bin/arm-linux-gnueabi-g++-9    -g   -o CMakeFiles/Bomb.dir/main.cpp.o -c /home/jef/Git/PuzzelBox/main.cpp",
+  "file": "/home/jef/Git/PuzzelBox/main.cpp"
+}
+]

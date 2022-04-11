@@ -109,6 +109,7 @@ private:
     int m_userInput;
     int m_iUserInput;
     bool m_userInputActive;
+    std::thread *_displayer;
 
     GameStates _state;                  /*!< Current game state */
     /**************************************************************

@@ -1,0 +1,1 @@
+/bin/arm-linux-gnueabi-g++-9  -g  -rdynamic CMakeFiles/Bomb.dir/main.cpp.o  -o Bomb 
