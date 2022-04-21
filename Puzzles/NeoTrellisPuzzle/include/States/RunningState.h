@@ -1,5 +1,15 @@
 #pragma once
+
 #include "State.h"
+#include "Adafruit_NeoTrellis.h"
+
+#define X_LENGTH 8
+#define Y_LENGTH 8
+
+#define UPPER_LEFT_I2C_ADDR  0x2E
+#define UPPER_RIGHT_I2C_ADDR 0x2F
+#define LOWER_LEFT_I2C_ADDR  0x30
+#define LOWER_RIGHT_I2C_ADDR 0x32
 
 /**
  * @brief State which handles the user playing/solving the Software puzzle.
@@ -38,4 +48,25 @@ public:
 	 * @brief Method checks if puzzle is finished if finished state is switched to completed.
 	 */
 	void check_puzzle_finished();
+
+	/**
+	 * @brief Get the color value.
+	 * 
+	 * @param colorValue Byte with color information.
+	 * @return uint32_t Returns NeoPixel color in uint32_t.
+	 */
+	uint32_t get_color_value(byte colorValue);
+
+	/**
+	 * @brief 
+	 * 
+	 * @param event 
+	 * @return TrellisCallback 
+	 */
+	TrellisCallback key_press(keyEvent event);
+
+
+private:
+	bool _matrix[X_LENGTH][Y_LENGTH]; /*!< Matrix which represents the current state of the neotrellis */
+	Adafruit_MultiTrellis *_trellis; /*!< MultiTrellis opbject */
 };
