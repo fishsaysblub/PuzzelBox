@@ -1,12 +1,42 @@
 <template>
   <div>
-    <nav>
+    <div class="container-scroller">
+    <!-- Side NAV -->
+    <SideNav />
+
+    <div class="container-fluid page-body-wrapper">
+      <!-- Top NAV -->
+      <TopNav />
+      
+      <div class="main-panel">
+        <!-- TestView -->
+        <router-view /> 
+      </div>
+    </div>
+
+  </div>
+
+    
+    <!-- <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </nav>
-    <router-view />
+    <router-view /> -->
   </div>
 </template>
+
+ <script>
+    import TopNav from './components/TopNav.vue'
+    import SideNav from './components/SideNav.vue'
+
+    export default {
+     name: 'app',
+     components:{
+        TopNav,
+        SideNav
+     }
+    }
+   </script>
 
 <style>
 #app {
