@@ -92,7 +92,6 @@ export default {
   props: {},
   methods: {
     getActive: function(link) {
-      console.log(this.$route.matched.some(({ name }) => name === link));
       if (this.$route.matched.some(({ name }) => name === link))
         return true;
       else
