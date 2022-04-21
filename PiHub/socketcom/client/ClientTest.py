@@ -3,6 +3,7 @@ import fcntl
 import struct
 import socketio
 from getmac import get_mac_address
+import uuid
 
 sio = socketio.Client()
 connected = False
@@ -31,9 +32,14 @@ def my_message(data):
 
 @sio.on("type_req")
 def on_type_request(data):
+    # type_info = {
+        # "type_id": 1, 
+        # "mac_address": get_mac_address(interface=i_face), 
+        # "ip_address": get_ip_address("bat0")
+    # }
     type_info = {
         "type_id": 2, 
-        "mac_address": get_mac_address(interface=i_face), 
+        "mac_address": str(uuid.uuid4()), 
         "ip_address": get_ip_address("bat0")
     }
     print("Sending type")

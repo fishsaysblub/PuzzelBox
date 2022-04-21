@@ -44,6 +44,14 @@
             <span class="menu-title">Network</span>
           </router-link>
         </li>
+        <li class="nav-item menu-items" :class="{active: getActive('Link')}">
+          <router-link class="nav-link" to="/devicelink">
+            <span class="menu-icon">
+              <i class="mdi mdi-speedometer"></i>
+            </span>
+            <span class="menu-title">Device Links</span>
+          </router-link>
+        </li>
 
         <!-- Dropdown -->
         <li class="nav-item menu-items">

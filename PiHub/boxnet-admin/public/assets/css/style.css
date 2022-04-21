@@ -11395,6 +11395,7 @@ input[type="button"].btn-block {
 
 .card {
   position: relative;
+  text-align: left;
   display: flex;
   flex-direction: column;
   min-width: 0;

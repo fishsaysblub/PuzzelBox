@@ -1,68 +1,102 @@
 <template>
   <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title">Network</h3>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <router-link to="/"> Dashboard</router-link>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Network</li>
+        </ol>
+      </nav>
+    </div>
     <div class="row">
-      <div class="col-lg-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Basic Table</h4>
-                    <p class="card-description"> Add class <code>.table</code>
-                    </p>
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th>Profile</th>
-                            <th>VatNo.</th>
-                            <th>Created</th>
-                            <th>Status</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td><label class="badge badge-danger">Pending</label></td>
-                          </tr>
-                          <tr>
-                            <td>Messsy</td>
-                            <td>53275532</td>
-                            <td>15 May 2017</td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>53275533</td>
-                            <td>14 May 2017</td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Peter</td>
-                            <td>53275534</td>
-                            <td>16 May 2017</td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td>20 May 2017</td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Device Table</h4>
+            <p class="card-description">
+              Connected devices within network <code>online</code>
+            </p>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th><b>Device</b></th>
+                    <th><b>SID</b></th>
+                    <th><b>Mac Address</b></th>
+                    <th><b>Identify</b></th>
+                    <th><b>Status</b></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    v-for="device in orderedDevices"
+                    :key="device.mac_address"
+                  >
+                    <td>{{ device.device_name }}</td>
+                    <td>{{ device.sid }}</td>
+                    <td>{{ device.mac_address }}</td>
+                    <td><button class="btn btn-secondary"  @click="identify(device.mac_address)">I</button></td>
+
+                    <td>
+                      <label
+                        class="badge badge-danger"
+                        v-if="device.device_status == 'Error'"
+                        >{{ device.device_status }}</label
+                      >
+                      <label
+                        class="badge badge-warning"
+                        v-if="device.device_status == 'Idle'"
+                        >{{ device.device_status }}</label
+                      >
+                      <label
+                        class="badge badge-success"
+                        v-if="device.device_status == 'InGame'"
+                        >{{ device.device_status }}</label
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <!-- partial -->
 </template>
 
 <script>
+import _ from 'lodash';
+
 export default {
   name: "TestView",
   components: {},
-  methods: {},
+  methods: {
+    identify: function(mac) {
+      console.log("Identifying " + mac);
+      this.$socket.emit("device_ident_req", { mac: mac });
+    }
+  },
+  computed: {
+    orderedDevices: function() {
+      return _.orderBy(this.$store.state.devices, 'device_name' );
+    },
+    filteredBombs: function() {
+      return _.filter(this.$store.state.devices,
+      function(device) {
+        return device.device_name == 'Bomb';
+      });
+    },
+    filteredBoxes: function() {
+      return _.filter(this.$store.state.devices,
+      function(device) {
+        return device.device_name == 'PuzzleBox';
+      });
+    }
+  }
 };
 </script>

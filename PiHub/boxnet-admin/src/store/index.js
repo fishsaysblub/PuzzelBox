@@ -2,7 +2,8 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    devices: {}
+    devices: {},
+    links: {}
   },
   getters: {
   },
@@ -10,6 +11,10 @@ export default createStore({
     "SOCKET_device_list_res"(state, data) {
       state.devices = data;
       console.log("Received socket device update");
+    },
+    "SOCKET_link_list_res"(state, data) {
+      state.links = data;
+      console.log("Received socket link update");
     }
   },
   actions: {

@@ -2,7 +2,7 @@ import 'dotenv/config'
 import { Server, Socket } from 'socket.io';
 import express from 'express';
 import http from 'http';
-import {connected_devices, get_device_list, mac_sid_lookup} from '../data/device.js';
+import {connected_devices, get_device_list, get_link_list, mac_sid_lookup} from '../data/device.js';
 
 // Handlers
 import registerManagementHandler from '../handlers/webManagementHandler.js';
@@ -33,7 +33,8 @@ web_io.on("connection", (socket) => {
 	console.log("Webservice connected");
 
 	// Supply webserver with device list
-	web_io.emit("device_list_res", get_device_list());
+	get_device_list();
+	get_link_list();
 
 	/**
 	 * Handle disconnect

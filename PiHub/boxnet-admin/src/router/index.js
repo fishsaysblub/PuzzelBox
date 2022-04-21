@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import TestView from '../views/TestView.vue'
 import NetworkView from '../views/NetworkView.vue'
+import DeviceLinkView from '../views/DeviceLinkView.vue'
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     path: '/network',
     name: 'Network',
     component: NetworkView
+  },
+  {
+    path: '/devicelink',
+    name: 'Link',
+    component: DeviceLinkView
   },
   {
     path: '/home',

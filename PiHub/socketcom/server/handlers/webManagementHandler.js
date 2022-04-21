@@ -31,8 +31,18 @@ export default (io, socket) => {
         get_device_list();
     }
 
+    /**
+     * Web device identify request
+     * @param {Json} data mac : mac address
+     */
+     function device_ident_req(data) {
+        if ("mac" in data)
+            console.log("Send blink req to device " + data.mac);
+    }
+
     // Socket calls
     socket.on("device_link_req", device_link);
     socket.on("device_unlink_req", device_unlink_req);
     socket.on("device_list_req", ret_device_list);
+    socket.on("device_ident_req", device_ident_req);
 }

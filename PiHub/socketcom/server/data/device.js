@@ -1,5 +1,5 @@
 import web_io from "../sockets/web-socket.js";
-import fs from "fs";
+import fs, { link } from "fs";
 import path from "path";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -11,7 +11,7 @@ export default null;
 
 // Constants
 export const type_list = ["Web", "Bomb", "PuzzleBox"]
-export const status_list = ["Idle", "InGame"]
+export const status_list = ["Idle", "InGame", "Error"]
 
 // Data objects
 export let connected_devices = {}
@@ -83,6 +83,29 @@ export function get_device_list() {
 }
 
 /**
+ * Get formatted links list and send to web
+ * 
+ * @returns Formatted link list for web
+ */
+ export function get_link_list() {
+	let return_data = {};
+	let json_data = fs.readFileSync(path.resolve(__dirname, "device_links.json"), "utf-8") 
+
+	let data = JSON.parse(json_data);
+	for (const [mac, link] of Object.entries(data)) {
+		if (link.type == 'box-bomb') {
+			return_data[mac] = {
+				'box_mac': mac,
+				'bomb_mac': link.link
+			};
+		}	
+	}
+
+	web_io.emit("link_list_res", return_data);
+	return return_data;
+}
+
+/**
  * Write made device link to file
  * @param {String} bomb_mac Bomb mac address to link
  * @param {String} box_mac Box mac address to link
@@ -110,6 +133,19 @@ export function create_device_link(bomb_mac, box_mac) {
 			}
 			try {
 				let base = JSON.parse(json_data);
+				if (box_mac in base) {
+					let link_mac = base[box_mac].link;
+					delete base[box_mac];
+					if (link_mac in base)
+						delete base[link_mac];
+				}
+				if (bomb_mac in base) {
+					let link_mac = base[bomb_mac].link;
+					delete base[bomb_mac];
+					if (link_mac in base)
+						delete base[link_mac];
+				}
+				
 				let addon = JSON.parse(data_entry);
 				output = { ...base, ...addon };
 				fs.writeFile(path.resolve(__dirname, "device_links.json"), JSON.stringify(output), 'utf8', (err) => {
@@ -120,6 +156,7 @@ export function create_device_link(bomb_mac, box_mac) {
 
 					// Update web clients of new link
 					get_device_list();
+					get_link_list();
 				});
 			} catch {
 				console.log("Can't open file");
@@ -143,7 +180,8 @@ export function remove_device_link(mac) {
 			if (mac in data) {
 				let link_mac = data[mac].link;
 				delete data[mac];
-				delete data[link_mac];
+				if (link_mac in data)
+					delete data[link_mac];
 
 				fs.writeFileSync(path.resolve(__dirname, "device_links.json"), JSON.stringify(data), 'utf8');
 				console.log("Device link removed");
