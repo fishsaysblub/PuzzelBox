@@ -4,7 +4,7 @@ import LoginView from '../views/LoginView.vue'
 import TestView from '../views/TestView.vue'
 import NetworkView from '../views/NetworkView.vue'
 import DeviceLinkView from '../views/DeviceLinkView.vue'
-import Store from '@/store/index.js'
+import { firebaseapp } from '@/main.js'
 
 
 const routes = [
@@ -55,12 +55,11 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
-  if (Store.state.user == null && to.meta.authRequired == true) {
+router.beforeEach(async (to, from, next) => {
+  if (!await firebaseapp.getCurrentUser() && to.meta.authRequired == true) {
     next({path: 'login'});
     return false;
   } else {
-    console.log("Routing from: ", from, " to: ", to, Store.state.user);
     next();
     return true;
   }
