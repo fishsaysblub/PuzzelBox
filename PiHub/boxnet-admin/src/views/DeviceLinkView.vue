@@ -37,7 +37,13 @@
                     @click="selectBox(device.mac_address)"
                     :class="{ pairSelect: amSelected(device.mac_address) }"
                   >
-                    <td>{{ device.mac_address }}</td>
+                    <td>
+                      {{ device.mac_address }}
+                      <i
+                        v-if="deviceLinked(device.mac_address)"
+                        class="icon-sm mdi mdi-check text-success ml-auto p-2"
+                      ></i>
+                    </td>
                     <td>
                       <button
                         class="btn btn-secondary"
@@ -73,7 +79,13 @@
                     @click="selectBomb(device.mac_address)"
                     :class="{ pairSelect: amSelected(device.mac_address) }"
                   >
-                    <td>{{ device.mac_address }}</td>
+                    <td>
+                      {{ device.mac_address }}
+                      <i
+                        v-if="deviceLinked(device.mac_address)"
+                        class="icon-sm mdi mdi-check text-success ml-auto p-2"
+                      ></i>
+                    </td>
                     <td>
                       <button
                         class="btn btn-secondary"
@@ -179,8 +191,7 @@ export default {
       if (bombOnline != undefined) {
         link["bomb_status"] = "Connected";
         link["bomb_connected"] = true;
-      }
-      else {
+      } else {
         link["bomb_status"] = "Offline";
         link["bomb_connected"] = false;
       }
@@ -194,13 +205,19 @@ export default {
       if (boxOnline != undefined) {
         link["box_status"] = "Connected";
         link["box_connected"] = true;
-      }
-      else {
+      } else {
         link["box_status"] = "Offline";
         link["box_connected"] = false;
       }
 
       return link;
+    },
+    deviceLinked: function (mac) {
+      let linked = _.find(this.$store.state.links, function (link) {
+        if (link.bomb_mac == mac || link.box_mac == mac) return true;
+      });
+
+      return linked;
     },
   },
   computed: {

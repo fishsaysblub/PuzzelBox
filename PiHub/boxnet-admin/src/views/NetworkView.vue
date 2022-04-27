@@ -1,7 +1,7 @@
 <template>
   <div class="content-wrapper">
     <div class="page-header">
-      <h3 class="page-title">Network</h3>
+      <h3 class="page-title"><b>Network</b></h3>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
@@ -15,7 +15,7 @@
       <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Device Table</h4>
+            <h4 class="card-title"><b>Device Table</b></h4>
             <p class="card-description">
               Connected devices within network <code>online</code>
             </p>

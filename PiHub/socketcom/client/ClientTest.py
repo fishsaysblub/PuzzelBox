@@ -4,6 +4,7 @@ import struct
 import socketio
 from getmac import get_mac_address
 import uuid
+import sys
 
 sio = socketio.Client()
 connected = False
@@ -32,14 +33,20 @@ def my_message(data):
 
 @sio.on("type_req")
 def on_type_request(data):
+    mac = str(uuid.uuid4())
+    typeId = 1
+    if (len(sys.argv) > 1):
+        mac = str(sys.argv[1])
+    if (len(sys.argv) > 2):
+        typeId = str(sys.argv[2])
     # type_info = {
-        # "type_id": 1, 
-        # "mac_address": get_mac_address(interface=i_face), 
-        # "ip_address": get_ip_address("bat0")
+    #     "type_id": 2, 
+    #     "mac_address": get_mac_address(interface=i_face), 
+    #     "ip_address": get_ip_address("bat0")
     # }
     type_info = {
-        "type_id": 2, 
-        "mac_address": str(uuid.uuid4()), 
+        "type_id": typeId, 
+        "mac_address": mac, 
         "ip_address": get_ip_address("bat0")
     }
     print("Sending type")
@@ -52,10 +59,16 @@ def disconnect():
 
 while not connected:
     try:
+        mac = str(uuid.uuid4())
+        typeId = 1
+        if (len(sys.argv) > 1):
+            mac = str(sys.argv[1])
+        if (len(sys.argv) > 2):
+            typeId = str(sys.argv[2])
         sio.connect('http://localhost:5000/', auth={
             "token":"A123",
-            "type_id": 2, 
-            "mac_address": get_mac_address(interface=i_face), 
+            "type_id": typeId, 
+            "mac_address": mac,#get_mac_address(interface=i_face), 
             "ip_address": get_ip_address("bat0")
         })
         connected = True

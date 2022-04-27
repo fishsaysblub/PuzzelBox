@@ -84,7 +84,7 @@
               </a>
               <div class="dropdown-divider"></div>
               <!-- Logout button -->
-              <a class="dropdown-item preview-item">
+              <a @click="logout()" class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
                   <div class="preview-icon bg-dark rounded-circle">
                     <i class="mdi mdi-logout text-danger"></i>
@@ -116,9 +116,24 @@
 </template>
 
 <script>
+import { signOut } from "firebase/auth";
+import { auth } from "../main.js";
+
 export default {
   name: "TopNav",
   props: {},
+  methods: {
+    logout: function () {
+      signOut(auth)
+        .then(() => {
+          console.log('Logged out');
+          this.$router.push('/login');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
 };
 </script>
 
