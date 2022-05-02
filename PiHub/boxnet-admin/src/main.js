@@ -3,7 +3,7 @@ import App from './App.vue'
 import store from './store'
 import router from './router'
 import socket from './socket'
-import { initSocket } from './socket'
+// import { initSocket } from './socket'
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -29,7 +29,9 @@ firebaseapp.getCurrentUser = () => {
             unsubscribe();
             resolve(user);
             if (user != null) {
-                initSocket();
+                // Load socket if user is logged in
+                socket.initSocket();
+                store.state.user = user;
             }
         }, reject);
     }

@@ -143,7 +143,8 @@
 
 <script>
 import _ from "lodash";
-import DeviceLinkCard from "../components/DeviceLinkCard.vue";
+import DeviceLinkCard from "@/components/DeviceLinkCard.vue";
+import socket from '@/socket/index.js';
 
 export default {
   name: "TestView",
@@ -159,7 +160,7 @@ export default {
   methods: {
     identify: function (mac) {
       console.log("Identifying " + mac);
-      this.$socket.emit("device_ident_req", { mac: mac });
+      socket.get().emit("device_ident_req", { mac: mac });
     },
     selectBox: function (mac) {
       this.boxe = mac;
@@ -174,7 +175,7 @@ export default {
       if (this.bomb == null || this.boxe == null) {
         return;
       }
-      this.$socket.emit("device_link_req", {
+      socket.get().emit("device_link_req", {
         bomb_mac: this.bomb,
         box_mac: this.boxe,
       });

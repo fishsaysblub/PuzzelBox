@@ -71,6 +71,7 @@
 
 <script>
 import _ from 'lodash';
+import socket from '../socket/index.js';
 
 export default {
   name: "TestView",
@@ -78,7 +79,7 @@ export default {
   methods: {
     identify: function(mac) {
       console.log("Identifying " + mac);
-      this.$socket.emit("device_ident_req", { mac: mac });
+      socket.get().emit("device_ident_req", { mac: mac });
     }
   },
   computed: {

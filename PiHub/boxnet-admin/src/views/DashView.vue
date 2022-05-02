@@ -50,7 +50,7 @@
 
 <script>
 export default {
-  name: "TestView",
+  name: "DashView",
   components: {},
   methods: {},
 };

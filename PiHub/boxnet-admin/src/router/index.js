@@ -1,8 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
-import TestView from '../views/TestView.vue'
+import DashView from '../views/DashView.vue'
 import NetworkView from '../views/NetworkView.vue'
+import SettingsBoxView from '../views/settings/SettingsBoxView.vue'
+import SettingsBomView from '../views/settings/SettingsBomView.vue'
+import SettingsListView from '../views/settings/SettingsListView.vue'
 import DeviceLinkView from '../views/DeviceLinkView.vue'
 import { firebaseapp } from '@/main.js'
 
@@ -11,7 +14,7 @@ const routes = [
   {
     path: '/',
     name: 'Dash',
-    component: TestView,
+    component: DashView,
     meta: {
       authRequired: true,
     }
@@ -28,6 +31,30 @@ const routes = [
     path: '/devicelink',
     name: 'Link',
     component: DeviceLinkView,
+    meta: {
+      authRequired: true,
+    }
+  },
+  {
+    path: '/settings',
+    name: 'SettingsList',
+    component: SettingsListView,
+    meta: {
+      authRequired: true,
+    }
+  },
+  {
+    path: '/settings/box/:mac',
+    name: 'SettingsBox',
+    component: SettingsBoxView,
+    meta: {
+      authRequired: true,
+    }
+  },
+  {
+    path: '/settings/bom/:mac',
+    name: 'SettingsBom',
+    component: SettingsBomView,
     meta: {
       authRequired: true,
     }

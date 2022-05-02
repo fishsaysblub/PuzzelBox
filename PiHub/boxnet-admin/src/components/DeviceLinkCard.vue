@@ -54,15 +54,17 @@
 </template>
 
 <script>
+import socket from '../socket/index.js';
+
 export default {
   name: "LinkCard",
   methods: {
     deleteLink: function() {
-      this.$socket.emit("device_unlink_req", { mac: this.link.box_mac });
+      socket.get().emit("device_unlink_req", { mac: this.link.box_mac });
       this.deleted = true;
     },
     undoDelete: function() {
-      this.$socket.emit("device_link_req", {
+      socket.get().emit("device_link_req", {
         bomb_mac: this.link.bomb_mac,
         box_mac: this.link.box_mac,
       });

@@ -13,10 +13,10 @@
       >
         <router-link to="/">
           <a class="sidebar-brand brand-logo" href="#"
-            ><img src="assets/images/logo.svg" alt="logo"
+            ><img src="@/assets/images/logo.svg" alt="logo"
           /></a>
           <a class="sidebar-brand brand-logo-mini" href="#"
-            ><img src="assets/images/logo-mini.svg" alt="logo"
+            ><img src="@/assets/images/logo-mini.svg" alt="logo"
           /></a>
         </router-link>
       </div>
@@ -32,6 +32,15 @@
               <i class="mdi mdi-speedometer"></i>
             </span>
             <span class="menu-title">Scoreboard</span>
+          </router-link>
+        </li>
+
+        <li class="nav-item menu-items" :class="{ active: getActive('SettingsList') }">
+          <router-link class="nav-link" to="/settings">
+            <span class="menu-icon">
+              <i class="mdi mdi-settings"></i>
+            </span>
+            <span class="menu-title">Settings</span>
           </router-link>
         </li>
 

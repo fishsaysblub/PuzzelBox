@@ -13,7 +13,7 @@
       >
         <router-link to="/">
           <a class="navbar-brand brand-logo-mini" href="#"
-            ><img src="assets/images/logo-mini.svg" alt="logo"
+            ><img src="@/assets/images/logo-mini.svg" alt="logo"
           /></a>
         </router-link>
       </div>
@@ -52,10 +52,10 @@
               <div class="navbar-profile">
                 <img
                   class="img-xs rounded-circle"
-                  src="assets/images/faces/face15.jpg"
+                  src="@/assets/images/faces/face24.jpg"
                   alt=""
                 />
-                <p class="mb-0 d-none d-sm-block navbar-profile-name">Admin</p>
+                <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ $store.state.user.providerData[0].displayName }}</p>
                 <i class="mdi mdi-menu-down d-none d-sm-block"></i>
               </div>
             </a>
@@ -72,7 +72,7 @@
               <h6 class="p-3 mb-0">Profile</h6>
               <div class="dropdown-divider"></div>
               <!-- Settings button -->
-              <a class="dropdown-item preview-item">
+              <a @click="settings()" class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
                   <div class="preview-icon bg-dark rounded-circle">
                     <i class="mdi mdi-settings text-success"></i>
@@ -133,6 +133,9 @@ export default {
           console.log(error);
         });
     },
+    settings: function () {
+      this.$router.push('/settings');
+    }
   },
 };
 </script>
