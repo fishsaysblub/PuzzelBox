@@ -30,14 +30,10 @@
 
         <ul class="navbar-nav navbar-nav-right">
           <!-- Button -->
-          <li class="nav-item dropdown d-none d-lg-block">
-            <a
+          <li class="nav-item d-none d-lg-block">
+            <router-link to="/creategame"
               class="nav-link btn btn-success create-new-button"
-              id="createbuttonDropdown"
-              data-toggle="dropdown"
-              aria-expanded="false"
-              href="#"
-              >+ Button</a
+              >+ Schedule new game</router-link
             >
           </li>
 
@@ -55,7 +51,7 @@
                   src="@/assets/images/faces/face24.jpg"
                   alt=""
                 />
-                <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ $store.state.user.providerData[0].displayName }}</p>
+                <p v-if="$store.state.user != null" class="mb-0 d-none d-sm-block navbar-profile-name">{{ $store.state.user.providerData[0].displayName }}</p>
                 <i class="mdi mdi-menu-down d-none d-sm-block"></i>
               </div>
             </a>

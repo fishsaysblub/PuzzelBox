@@ -1,11 +1,23 @@
 <template>
   <div class="col-12 grid-margin">
-    <div class="card linkCard" :class="{linkCardDeleted: deleted}">
+    <div class="card linkCard" :class="{ linkCardDeleted: deleted }">
       <div class="card-body">
         <h5>
           <b class="p-2">Box Link</b>
-          <button v-if="deleted == false" @click="deleteLink()" class="btn btn-sm btn-danger">Delete</button>
-          <button v-if="deleted == true" @click="undoDelete()" class="btn btn-sm btn-primary">Undo</button>
+          <button
+            v-if="deleted == false && modify"
+            @click="deleteLink()"
+            class="btn btn-sm btn-danger"
+          >
+            Delete
+          </button>
+          <button
+            v-if="deleted == true && modify"
+            @click="undoDelete()"
+            class="btn btn-sm btn-primary"
+          >
+            Undo
+          </button>
         </h5>
         <div class="row">
           <!-- Box -->
@@ -54,31 +66,32 @@
 </template>
 
 <script>
-import socket from '../socket/index.js';
+import socket from "../socket/index.js";
 
 export default {
   name: "LinkCard",
   methods: {
-    deleteLink: function() {
+    deleteLink: function () {
       socket.get().emit("device_unlink_req", { mac: this.link.box_mac });
       this.deleted = true;
     },
-    undoDelete: function() {
+    undoDelete: function () {
       socket.get().emit("device_link_req", {
         bomb_mac: this.link.bomb_mac,
         box_mac: this.link.box_mac,
       });
       this.deleted = false;
-    }
+    },
   },
   props: {
     link: JSON,
+    modify: Boolean,
   },
   data() {
     return {
-      deleted: false
-    }
-  }
+      deleted: false,
+    };
+  },
 };
 </script>
 

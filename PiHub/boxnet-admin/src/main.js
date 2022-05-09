@@ -30,8 +30,10 @@ firebaseapp.getCurrentUser = () => {
             resolve(user);
             if (user != null) {
                 // Load socket if user is logged in
-                socket.initSocket();
-                store.state.user = user;
+                if (socket.socket == null) {
+                    socket.initSocket();
+                    store.state.user = user;
+                }
             }
         }, reject);
     }

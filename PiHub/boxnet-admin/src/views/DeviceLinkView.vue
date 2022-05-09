@@ -132,6 +132,7 @@
                 v-for="link in $store.state.links"
                 :key="link.box_mac"
                 :link="getLink(link)"
+                :modify="true"
               />
             </div>
           </div>

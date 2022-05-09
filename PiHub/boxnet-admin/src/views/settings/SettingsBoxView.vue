@@ -25,7 +25,7 @@
     
     <div class="row justify-content-end">
       <div class="col-5">
-        <BoxSettingsCard mac="$route.params.mac" />
+        <BoxSettingsCard :mac="$route.params.mac" />
       </div>
     </div>
     
@@ -37,7 +37,7 @@
 import BoxSettingsCard from "@/components/BoxSettingsCard.vue";
 
 export default {
-  name: "SettingsView",
+  name: "BoxSettingsView",
   components: {
     BoxSettingsCard,
   },

@@ -35,6 +35,15 @@
           </router-link>
         </li>
 
+        <li class="nav-item menu-items" :class="{ active: getActive('GameList') }">
+          <router-link class="nav-link" to="/gameschedule">
+            <span class="menu-icon">
+              <i class="mdi mdi-google-controller"></i>
+            </span>
+            <span class="menu-title">Game Schedule</span>
+          </router-link>
+        </li>
+
         <li class="nav-item menu-items" :class="{ active: getActive('SettingsList') }">
           <router-link class="nav-link" to="/settings">
             <span class="menu-icon">
