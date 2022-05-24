@@ -135,6 +135,9 @@
             <button @click="onSave()" class="btn btn-primary mr-2">
               Save to Bomb
             </button>
+            <button @click="onSaveAll()" class="btn btn-dark mr-2">
+              Save to <b>All</b> Bombs
+            </button>
           </form>
         </div>
       </div>
@@ -143,6 +146,7 @@
 </template>
 
 <script>
+import _ from "lodash";
 import { Container, Draggable } from "vue-dndrop";
 import socket from '../socket/index.js';
 
@@ -178,6 +182,13 @@ export default {
       this.$store.commit('saveBombSettings', this.settings);
       socket.get().emit("bomb_settings_save", { mac: this.mac, settings: this.settings});
     },
+    onSaveAll() {
+      this.$store.commit('saveBombSettings', this.settings);
+      this.filteredBombs.forEach(bomb => {
+        socket.get().emit("bomb_settings_save", { mac: bomb.mac_address, settings: this.settings});
+      });
+      
+    },
   },
   props: {
     mac: String,
@@ -188,6 +199,13 @@ export default {
         this.settings = newVal;
       },
       deep: true,
+    },
+  },
+  computed: {
+    filteredBombs: function () {
+      return _.filter(this.$store.state.devices, function (device) {
+        return device.device_name == "Bomb";
+      });
     },
   },
   data() {

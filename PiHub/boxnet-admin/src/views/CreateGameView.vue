@@ -35,6 +35,53 @@
                   required
                 />
               </div>
+
+              <div class="form-group row">
+                <label class="col-sm-12 col-form-label">GameType <code>{{gameType}}</code></label>
+                <div class="col-sm-4">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        name="membershipRadios"
+                        v-model="gameType"
+                        id="gameType1"
+                        value="bomb-box"
+                        checked />
+                      Bomb & Box <i class="input-helper"></i
+                    ></label>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        name="membershipRadios"
+                        v-model="gameType"
+                        id="gameType2"
+                        value="bomb" />
+                      Bomb Only <i class="input-helper"></i
+                    ></label>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        name="membershipRadios"
+                        v-model="gameType"
+                        id="gameType3"
+                        value="box" />
+                      Box Only <i class="input-helper"></i
+                    ></label>
+                  </div>
+                </div>
+              </div>
             </form>
           </div>
         </div>
@@ -43,16 +90,23 @@
         <button
           class="btn btn-lg create-new-button"
           @click="createGame()"
-          :class="{ 'btn-success': selectedLink != null, 'btn-dark': selectedLink == null }"
+          :class="{
+            'btn-success': (selectedLink != null && gameType == 'bomb-box') || (selectedBomb != null  && gameType == 'bomb') || (selectedBox != null  && gameType == 'box'),
+            'btn-dark': (selectedLink == null && gameType == 'bomb-box') || (selectedBomb == null  && gameType == 'bomb') || (selectedBox == null  && gameType == 'box'),
+          }"
         >
           <h4><b>Create Game</b></h4>
         </button>
       </div>
+
       <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card">
+        <!-- Bomb-Box game -->
+        <div class="card" v-if="gameType == 'bomb-box'">
           <div class="card-body">
             <h4 class="card-title"><b>Select pair</b></h4>
-            <p class="card-description">Box -> Bomb links</p>
+            <p class="card-description">
+              Box -> Bomb links <code>Click to select and identify</code>
+            </p>
             <hr />
             <div class="row">
               <DeviceLinkCard
@@ -65,19 +119,64 @@
             </div>
           </div>
         </div>
+
+        <!-- Bomb game -->
+        <div class="card" v-if="gameType == 'bomb'">
+          <div class="card-body">
+            <h4 class="card-title"><b>Select Bomb</b></h4>
+            <p class="card-description">
+              Bombs <code>Click to select and identify</code>
+            </p>
+            <hr />
+            <div class="row">
+              <DeviceCard
+                v-for="bomb in filteredBombs"
+                :key="bomb.mac_address"
+                :link="bomb"
+                @click="selectBomb(bomb)"
+                :class="{ activeLink: selectedBomb == bomb }"
+                class="col-12"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Box game -->
+        <div class="card" v-if="gameType == 'box'">
+          <div class="card-body">
+            <h4 class="card-title"><b>Select Box</b></h4>
+            <p class="card-description">
+              Boxes <code>Click to select and identify</code>
+            </p>
+            <hr />
+            <div class="row">
+              <DeviceCard
+                v-for="box in filteredBoxes"
+                :key="box.mac_address"
+                :link="box"
+                @click="selectBox(box)"
+                :class="{ activeLink: selectedBox == box }"
+                class="col-12"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import _ from "lodash";
 import DeviceLinkCard from "@/components/DeviceLinkCard.vue";
+import DeviceCard from "@/components/DeviceCard.vue";
 import socket from "@/socket/index.js";
 
 export default {
   name: "CreateGame",
   components: {
     DeviceLinkCard,
+    DeviceCard,
   },
   created() {
     this.startTime = this.today;
@@ -96,6 +195,19 @@ export default {
       let now = year + "-" + month + "-" + day + "T" + time;
       return now;
     },
+    orderedDevices: function () {
+      return _.orderBy(this.$store.state.devices, "device_name");
+    },
+    filteredBombs: function () {
+      return _.filter(this.$store.state.devices, function (device) {
+        return device.device_name == "Bomb";
+      });
+    },
+    filteredBoxes: function () {
+      return _.filter(this.$store.state.devices, function (device) {
+        return device.device_name == "PuzzleBox";
+      });
+    },
   },
   methods: {
     identify: function (bombMac, boxMac) {
@@ -113,10 +225,26 @@ export default {
     },
     selectPair(link) {
       this.selectedLink = link;
+      this.identify(link.bomb_mac, link.box_mac);
+    },
+    selectBox(box) {
+      this.selectedBox = box;
+      socket.get().emit("device_ident_req", { mac: box.mac_address });
+    },
+    selectBomb(bomb) {
+      this.selectedBomb = bomb;
+      socket.get().emit("device_ident_req", { mac: bomb.mac_address });
     },
     createGame() {
-      if (this.selectedLink == null) return;
-      console.log("Creating game", this.startTime, this.selectedLink);
+      if (this.selectedLink != null && this.gameType == "bomb-box") {
+        console.log("Creating game Bomb Box", this.startTime, this.selectedLink);
+      } else if (this.selectBox != null && this.gameType == "box") {
+        console.log("Creating game Box Only", this.startTime, this.selectBox);
+      } else if (this.selectBomb != null && this.gameType == "bomb") {
+        console.log("Creating game Bomb Only", this.startTime, this.selectBomb);
+      } else {
+        return;
+      }
       // Todo: Send new game to socket
       this.$router.push("/gameschedule");
     },
@@ -125,6 +253,9 @@ export default {
     return {
       startTime: "",
       selectedLink: null,
+      selectedBomb: null,
+      selectedBox: null,
+      gameType: "bomb-box",
     };
   },
 };

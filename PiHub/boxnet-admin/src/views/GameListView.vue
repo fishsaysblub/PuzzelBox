@@ -23,6 +23,7 @@
             <p class="card-description">Scheduled Bomb - Box pairs</p>
             
             <div class="table-responsive">
+              WARNING, THIS IS STILL A PLACEHOLDER
               <table class="table">
                 <thead>
                   <tr>
