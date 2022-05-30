@@ -63,6 +63,11 @@ void OnMessage(sio::event &)
     std::cout << "Type req\n";
 }
 
+void OnBlink(sio::event &)
+{
+    std::cout << "Blink Blink\n";
+}
+
 // demo2.C - Sample C++ program 
 int main(void) 
 {
@@ -87,6 +92,7 @@ int main(void)
     {
         h->set_open_listener(&on_connect);
         h->socket()->on("type_req", &OnMessage);
+        h->socket()->on("device_ident_req", &OnBlink);
     }
     
     return 0;

@@ -1,4 +1,4 @@
-import { create_device_link, get_device_list, remove_device_link } from '../data/device.js';
+import { create_device_link, get_device_list, mac_sid_lookup, remove_device_link } from '../data/device.js';
 import deviceSocket from '../sockets/device-socket.js'
 
 export default (io, socket) => {
@@ -37,7 +37,8 @@ export default (io, socket) => {
      */
     function device_ident_req(data) {
         if ("mac" in data)
-            console.log("Send blink req to device " + data.mac);
+            console.log("Send blink req to device " + data.mac + mac_sid_lookup[data.mac]);
+            deviceSocket.to(mac_sid_lookup[data.mac]).emit("device_ident_req", {});
     }
 
     /**
