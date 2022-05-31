@@ -1,6 +1,5 @@
 #include "States/InitializeState.h"
 #include "StateMachine.h"
-#include "GpioManager.h"
 #include <Arduino.h>
 
 InitializeState::InitializeState()

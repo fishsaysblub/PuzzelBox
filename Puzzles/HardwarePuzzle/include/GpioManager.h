@@ -3,17 +3,18 @@
 
 //TODO: Set pins correctly
 
-#define BUZZER_PIN		  0
+#define BUZZER_PIN		   4
 
-#define DATA_PIN_BUTTONS  0
-#define CLOCK_PIN_BUTTONS 0
-#define LATCH_PIN_BUTTONS 0
+#define DATA_PIN_BUTTONS  21
+#define CLOCK_PIN_BUTTONS 19
+#define LATCH_PIN_BUTTONS 22
+#define CLKIN_PIN_BUTTONS 25
 
-#define DATA_PIN_DISPLAY  GPIO_NUM_14
-#define CLOCK_PIN_DISPLAY GPIO_NUM_27
+#define DATA_PIN_DISPLAY  14
+#define CLOCK_PIN_DISPLAY 13
 
 #define NUMBER_OF_POTENTIOMETERS 4
-#define POTENTIOMETERS (int[NUMBER_OF_POTENTIOMETERS]){21, 22, 19, 23}
+#define POTENTIOMETERS (int[NUMBER_OF_POTENTIOMETERS]){35, 34, 38, 37}
 #define MAX_BRIGHTNESS 0x0F
 
 /**
@@ -46,6 +47,8 @@ public:
 	 */
 	TM1637Display get_display_instance();
 
+	void set_buzzer_pin(int freq);
+
 private:
 	/**
 	 * @brief Construct for Gpio Manager object.
@@ -61,4 +64,6 @@ private:
 	 * @brief Class used to controll the 4 digit 7 segment display.
 	 */
 	TM1637Display display;
+
+	bool _buzzer_pin_initialized;
 };
