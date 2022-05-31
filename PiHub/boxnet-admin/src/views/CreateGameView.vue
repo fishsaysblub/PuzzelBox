@@ -171,6 +171,7 @@ import _ from "lodash";
 import DeviceLinkCard from "@/components/DeviceLinkCard.vue";
 import DeviceCard from "@/components/DeviceCard.vue";
 import socket from "@/socket/index.js";
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
   name: "CreateGame",
@@ -237,11 +238,35 @@ export default {
     },
     createGame() {
       if (this.selectedLink != null && this.gameType == "bomb-box") {
+        socket.get().emit("game_create_req", {
+           uid: uuidv4(),
+           game: {
+             game_type: this.gameType,
+             start_time: this.startTime,
+             device: this.selectedLink
+           } 
+          });
         console.log("Creating game Bomb Box", this.startTime, this.selectedLink);
       } else if (this.selectBox != null && this.gameType == "box") {
-        console.log("Creating game Box Only", this.startTime, this.selectBox);
+        socket.get().emit("game_create_req", {
+           uid: uuidv4(),
+           game: {
+             game_type: this.gameType,
+             start_time: this.startTime,
+             device: this.selectedBox
+           } 
+          });
+        console.log("Creating game Box Only", this.startTime, this.selectedBox);
       } else if (this.selectBomb != null && this.gameType == "bomb") {
-        console.log("Creating game Bomb Only", this.startTime, this.selectBomb);
+        socket.get().emit("game_create_req", {
+           uid: uuidv4(),
+           game: {
+             game_type: this.gameType,
+             start_time: this.startTime,
+             device: this.selectedBomb
+           } 
+          });
+        console.log("Creating game Bomb Only", this.startTime, this.selectedBomb);
       } else {
         return;
       }

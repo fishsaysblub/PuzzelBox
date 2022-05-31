@@ -1,3 +1,4 @@
+import { create_game, get_game_list } from './data/game.js';
 import {start_device_socket} from './sockets/device-socket.js';
 import {start_web_socket} from './sockets/web-socket.js';
 

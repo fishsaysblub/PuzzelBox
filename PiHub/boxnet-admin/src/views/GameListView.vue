@@ -23,29 +23,48 @@
             <p class="card-description">Scheduled Bomb - Box pairs</p>
             
             <div class="table-responsive">
-              WARNING, THIS IS STILL A PLACEHOLDER
               <table class="table">
                 <thead>
                   <tr>
+                    <th>Game-Type</th>
                     <th>Scheduled time</th>
-                    <th>State</th>
                     <th>Bomb mac</th>
                     <th>Box mac</th>
                     <th>Identify</th>
+                    <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>{{ startingTimestamp(1652094947) }}</td>
-                    <td><label class="badge badge-danger">Pending</label></td>
-                    <td>bom mac</td>
-                    <td>box mac</td>
+                  <tr v-for="(game, key) in $store.state.gameList" v-bind:key="key">
+                    <td>{{game.game_type}}</td>
+                    <td>{{ game.start_time }}</td>
+                    <td v-if="game.game_type == 'bomb-box'">{{game.device.bomb_mac}}</td>
+                    <td v-if="game.game_type == 'bomb'">{{game.device.mac_address}}</td>
+                    <td v-if="game.game_type == 'bomb'">-</td>
+                    <td v-if="game.game_type == 'bomb-box'">{{game.device.box_mac}}</td>
+                    <td v-if="game.game_type == 'box'">-</td>
+                    <td v-if="game.game_type == 'box'">{{game.device.mac_address}}</td>
                     <td>
                       <button
+                        v-if="game.game_type == 'bomb-box'"
                         class="btn btn-secondary"
-                        @click="identify('bom', 'box')"
+                        @click="identify(game.device.bomb_mac, game.device.box_mac)"
                       >
                         I
+                      </button>
+                      <button
+                        v-else
+                        class="btn btn-secondary"
+                        @click="identify(game.device.mac_address)"
+                      >
+                        I
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="btn btn-danger mdi mdi-delete"
+                        @click="deleteGame(key)"
+                      >
                       </button>
                     </td>
                   </tr>
@@ -80,6 +99,9 @@ export default {
       });
       return dtFormat.format(new Date(time * 1e3));
     },
+    deleteGame(uid) {
+      socket.get().emit("game_delete_req", {uid: uid});
+    }
   },
 };
 </script>

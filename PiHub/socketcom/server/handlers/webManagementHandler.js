@@ -1,4 +1,5 @@
 import { create_device_link, get_device_list, mac_sid_lookup, remove_device_link } from '../data/device.js';
+import { create_game, delete_game, get_game_list } from '../data/game.js';
 import deviceSocket from '../sockets/device-socket.js'
 
 export default (io, socket) => {
@@ -102,6 +103,41 @@ export default (io, socket) => {
         }
     }
 
+    /**
+     * Send game list to web
+     * @param {None} data 
+     */
+    function game_list_req(data) {
+        console.log("Sending game list", data);
+        let return_data = get_game_list();
+        socket.emit("game_list_res", return_data);
+    }
+
+    /**
+     * Create game in schedule
+     * @param {Json} data uid: id game: game data
+     */
+    function game_create_req(data) {
+        if ("uid" in data && "game" in data) {
+            console.log("Create Game Req", data);
+            create_game(data['uid'], data['game']);
+        }
+    }
+
+    /**
+     * Delete game from schedule
+     * @param {Json} data uid: id
+     */
+    function game_delete_req(data) {
+        if ("uid" in data) {
+            console.log("Delete Game Req", data);
+            delete_game(data["uid"]);
+
+            let return_data = get_game_list();
+            socket.emit("game_list_res", return_data);
+        }
+    }
+
     // Socket calls
     socket.on("device_link_req", device_link);
     socket.on("device_unlink_req", device_unlink_req);
@@ -109,4 +145,7 @@ export default (io, socket) => {
     socket.on("device_ident_req", device_ident_req);
     socket.on("bomb_settings_req", bomb_settings_req);
     socket.on("bomb_settings_save", bomb_settings_save);
+    socket.on("game_list_req", game_list_req);
+    socket.on("game_create_req", game_create_req);
+    socket.on("game_delete_req", game_delete_req);
 }

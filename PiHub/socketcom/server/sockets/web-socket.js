@@ -6,6 +6,7 @@ import {connected_devices, get_device_list, get_link_list, mac_sid_lookup} from 
 
 // Handlers
 import registerManagementHandler from '../handlers/webManagementHandler.js';
+import { get_game_list } from '../data/game.js';
 
 // Init server
 const app = express();
@@ -35,6 +36,7 @@ web_io.on("connection", (socket) => {
 	// Supply webserver with device list
 	get_device_list();
 	get_link_list();
+	socket.emit("game_list_res", get_game_list());
 
 	/**
 	 * Handle disconnect

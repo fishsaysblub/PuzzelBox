@@ -8,6 +8,7 @@ export default createStore({
     bombSettings: {},
     boxSettings: {},
     gameStates: {},
+    gameList: {},
   },
   getters: {
   },
@@ -26,6 +27,10 @@ export default createStore({
     "SOCKET_bomb_settings_res"(state, data) {
       state.bombSettings = data;
       // console.log("Received bomb settings");
+    },
+    "SOCKET_game_list_res"(state, data) {
+      state.gameList = data;
+      console.log("Got game List", data);
     },
     "saveBombSettings"(state, data) {
       state.bombSettings = data;
