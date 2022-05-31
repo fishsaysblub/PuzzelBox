@@ -49,10 +49,6 @@ void setup()
 	Serial.println("================================================");
 }
 
-void test(MailType* m)
-{
-	Serial.write("got mail\n");
-}
 
 void IReceivedData(MailType* whatyaget)
 {
@@ -76,6 +72,8 @@ void IReceivedData(MailType* whatyaget)
 		Serial.print("status[");
 		Serial.print(whatigot->status);
 		Serial.print("]\n");
+
+		I2C_Controller::Instance().set_status(0x20);
 	}
 
 	if(whatyaget->Primitive == GAME_ERROR)

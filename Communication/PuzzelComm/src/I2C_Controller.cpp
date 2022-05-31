@@ -27,13 +27,14 @@ void transmit_mail();
 
 void on_data_request()
 {
-    Serial.println("Master requested data");
-    FixedWire.write(0xAB);
+    Serial.print("Master requested data, returning [");
+    Serial.print(I2C_Controller::Instance().get_status());
+    Serial.print("]\n");
+    FixedWire.write(I2C_Controller::Instance().get_status());
 }
 
 void on_receive_data(int how_many)
 {
-    Serial.println("OnReceive called");
     uint8_t* data = reinterpret_cast<uint8_t*>(malloc(how_many * sizeof(uint8_t)));
     int i = 0;
 
@@ -50,7 +51,7 @@ void on_receive_data(int how_many)
 
 I2C_Controller::I2C_Controller()
 {
-    
+    _status = 0xAB;
     if (!FixedWire.begin(I2C_SDA, I2C_SCL, BUS_NUM)) {
         Serial.write("I2C slave init failed\n");
     }

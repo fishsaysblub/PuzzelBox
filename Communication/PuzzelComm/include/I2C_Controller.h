@@ -37,12 +37,17 @@ class I2C_Controller final
 
         void attach_callback(std::function<void(MailType*)> cb);
 
+        void set_status(uint8_t status) { _status = status;};
+        uint8_t get_status() {return _status;};
+    
     private:
         I2C_Controller();
         virtual ~I2C_Controller();
         void find_i2c_devices();
 
         void start_mail_transmission(MailEntryType* mail);
+
+        uint8_t _status;
 };
 
 
