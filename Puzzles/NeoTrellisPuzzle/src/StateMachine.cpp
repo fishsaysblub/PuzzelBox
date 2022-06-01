@@ -14,7 +14,7 @@ StateMachine::StateMachine() :
 	   	{INITIALIZE, new InitializeState},
 	 	{HYBERNATE, new HybernateState},
 		{ENTRY, new EntryState},
-		{RUNNING, new RunningState},
+		{RUNNING, &RunningState::instance()},
 		{COMPLETED, new CompletedState}
 	}),
 	_current_state({INVALID, nullptr})

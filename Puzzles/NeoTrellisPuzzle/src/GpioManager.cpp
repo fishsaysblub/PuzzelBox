@@ -17,3 +17,8 @@ void GpioManager::start_esp_sleep()
     Serial.flush();
     esp_light_sleep_start();
 }
+
+void GpioManager::set_neotrellis_i2c_pins(TwoWire *wire)
+{
+    wire->setPins(SDA_PIN, SCL_PIN);
+}

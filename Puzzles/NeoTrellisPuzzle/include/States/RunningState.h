@@ -17,14 +17,11 @@
 class RunningState final : public State
 {
 public:
-	/**
-	 * @brief Construct a new Running State object.
-	 */
-	RunningState();
-	/**
-	 * @brief Destroy the Running State object
-	 */
-	virtual ~RunningState();
+	static RunningState &instance()
+	{
+		static RunningState INSTANCE;
+		return INSTANCE;
+	}
 	
 	/**
 	 * @brief Method initializes the Running state.
@@ -56,17 +53,18 @@ public:
 	 * @return uint32_t Returns NeoPixel color in uint32_t.
 	 */
 	uint32_t get_color_value(byte colorValue);
-
-	/**
-	 * @brief 
-	 * 
-	 * @param event 
-	 * @return TrellisCallback 
-	 */
-	TrellisCallback key_press(keyEvent event);
-
+	
+	TrellisCallback handle_key_press(keyEvent event);
 
 private:
+	/**
+	 * @brief Construct a new Running State object.
+	 */
+	RunningState();
+	/**
+	 * @brief Destroy the Running State object
+	 */
+	virtual ~RunningState();
+
 	bool _matrix[X_LENGTH][Y_LENGTH]; /*!< Matrix which represents the current state of the neotrellis */
-	Adafruit_MultiTrellis *_trellis; /*!< MultiTrellis opbject */
 };
