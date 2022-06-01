@@ -13,7 +13,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)"
-   sodipodi:docname="LogoDesign.svg">
+   sodipodi:docname="logo.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -30,10 +30,10 @@
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
-     inkscape:window-y="588"
+     inkscape:window-width="3440"
+     inkscape:window-height="1377"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      units="px"
      fit-margin-top="0"
@@ -49,7 +49,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -58,18 +58,36 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-36.34333,-95.566688)">
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:27.6458px;line-height:1.25;font-family:sans-serif;fill:#f0f0f0;fill-opacity:1;stroke:none;stroke-width:0.691147"
-       x="40.896763"
-       y="104.63937"
+    <g
+       aria-label="Puzzle"
+       transform="scale(0.85680479,1.167127)"
        id="text835"
-       transform="scale(0.85680479,1.167127)"><tspan
-         sodipodi:role="line"
-         id="tspan833"
-         x="40.896763"
-         y="104.63937"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Good Times';-inkscape-font-specification:'Good Times';fill:#f0f0f0;fill-opacity:1;stroke-width:0.691147">Puzzle</tspan></text>
+       style="font-style:normal;font-weight:normal;font-size:27.6458px;line-height:1.25;font-family:sans-serif;fill:#f0f0f0;fill-opacity:1;stroke:none;stroke-width:0.691147">
+      <path
+         d="M 45.873007,104.63937 H 42.417282 V 84.762044 h 14.265232 q 3.732183,0 5.943847,2.23931 1.990498,2.018143 1.990498,4.920952 0,2.902809 -1.990498,4.920952 -2.211664,2.211664 -5.971492,2.211664 h -8.736073 v -3.455725 h 9.288989 q 1.90756,0 3.041038,-1.161123 1.022894,-1.050541 1.022894,-2.543414 0,-1.492873 -1.022894,-2.543413 -1.105832,-1.133478 -3.041038,-1.133478 H 45.873007 Z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Good Times';-inkscape-font-specification:'Good Times';fill:#f0f0f0;fill-opacity:1;stroke-width:0.691147"
+         id="path1811" />
+      <path
+         d="m 79.020298,104.63937 h -1.188769 q -5.031536,0 -7.574949,-1.96285 -2.819872,-2.18402 -2.819872,-6.994385 V 84.762044 h 3.455725 v 10.920091 q 0,3.151621 1.935206,4.450975 1.603457,1.05054 5.00389,1.05054 h 1.188769 q 3.400434,0 5.00389,-1.05054 1.935206,-1.299354 1.935206,-4.450975 V 84.762044 h 3.455725 v 10.920091 q 0,4.810365 -2.847517,6.994385 -2.515768,1.96285 -7.547304,1.96285 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Good Times';-inkscape-font-specification:'Good Times';fill:#f0f0f0;fill-opacity:1;stroke-width:0.691147"
+         id="path1813" />
+      <path
+         d="m 95.441891,104.63937 q -2.239309,0 -2.239309,-1.40993 0,-0.91231 1.05054,-1.9905 L 107.27429,88.217769 H 92.704957 v -3.455725 h 18.273873 q 1.05054,0 1.65875,0.469978 0.63585,0.469979 0.63585,1.18877 0,0.85702 -0.88466,1.741685 L 99.395241,101.18365 h 14.624629 v 3.45572 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Good Times';-inkscape-font-specification:'Good Times';fill:#f0f0f0;fill-opacity:1;stroke-width:0.691147"
+         id="path1815" />
+      <path
+         d="m 118.80258,104.63937 q -2.23931,0 -2.23931,-1.40993 0,-0.91231 1.05054,-1.9905 l 13.02117,-13.021171 h -14.56934 v -3.455725 h 18.27388 q 1.05054,0 1.65875,0.469978 0.63585,0.469979 0.63585,1.18877 0,0.85702 -0.88467,1.741685 l -12.99352,13.021173 h 14.62463 v 3.45572 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Good Times';-inkscape-font-specification:'Good Times';fill:#f0f0f0;fill-opacity:1;stroke-width:0.691147"
+         id="path1817" />
+      <path
+         d="M 139.45397,104.63937 V 84.762044 h 3.45572 v 16.421606 h 13.68468 v 3.45572 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Good Times';-inkscape-font-specification:'Good Times';fill:#f0f0f0;fill-opacity:1;stroke-width:0.691147"
+         id="path1819" />
+      <path
+         d="m 175.44877,92.834617 v 3.455725 h -11.36242 v -3.455725 z m -12.82765,8.349033 h 13.71232 v 3.45572 H 159.1654 V 84.762044 h 17.16804 v 3.455725 h -13.71232 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Good Times';-inkscape-font-specification:'Good Times';fill:#f0f0f0;fill-opacity:1;stroke-width:0.691147"
+         id="path1821" />
+    </g>
     <rect
        style="fill:none;stroke:#f0f0f0;stroke-width:3.53354;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect841"
