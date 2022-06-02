@@ -8,6 +8,10 @@
 #define ROWS 4
 #define COLS 3
 
+#define KEY_CORRECT 1
+#define KEY_INCORRECT -1
+#define KEY_NONE 0
+
 /**
  * @brief State which handles the user playing/solving the Safe puzzle.
  */
@@ -40,10 +44,11 @@ private:
 	/**************************************************************
 	 * @brief Check pressed key for level
 	 *
-	 * @return true Key pressed is correct
-	 * @return false Key pressed is incorrect
+	 * @return 1 Key pressed is correct
+	 * @return -1 Key pressed is incorrect
+	 * @return 0 no key pressed
 	 **************************************************************/
-	bool check_user_input();
+	int check_user_input();
 
 	/**************************************************************
 	 * @brief Set the level indication lights

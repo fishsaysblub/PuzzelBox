@@ -10,52 +10,52 @@
  **************************************************************/
 #pragma once
 #include <Arduino.h>
+#include <TM1637Display.h>
 
 /**************************************************************
  * @brief Pin defines
- * ! TBD Need hardware info for shift pins
  * 
  **************************************************************/
-#define ROW_PIN1 2
-#define ROW_PIN2 3
-#define ROW_PIN3 4
-#define ROW_PIN4 5
-#define COL_PIN1 6
-#define COL_PIN2 7
-#define COL_PIN3 8
+#define ROW_PIN1 37		//! TOUCH PIN 37 external pull-up needed
+#define ROW_PIN2 38		//! TOUCH PIN 38 external pull-up needed
+#define ROW_PIN3 34
+#define ROW_PIN4 35
+#define COL_PIN1 19
+#define COL_PIN2 21
+#define COL_PIN3 22
 #define LVLLED1 1
 #define LVLLED2 2
 #define LVLLED3 3
-#define LVLLED4 4
-#define LVLLED5 5
-#define DISP_DATA1 1
-#define DISP_CLK1 2
-#define DISP_DATA2 3
-#define DISP_CLK2 4
+#define LVLLED4 23
+#define LVLLED5 25
+#define DISP_DATA1 14
+#define DISP_CLK1 13
+#define LOCK_PIN 26
 
 /**************************************************************
  * @brief Display defines
- * Seven segment def	  	Common Anode      Common Cathode
+ * Seven segment def
  **************************************************************/
-#define DISP_0 B00000011 	// B00000011       B11111100
-#define DISP_1 B10011111 	// B10011111       B01100000
-#define DISP_2 B00100101 	// B00100101       B11011010
-#define DISP_3 B00001101 	// B00001101       B11110010
-#define DISP_4 B10011001 	// B10011001       B01100110
-#define DISP_5 B01001001 	// B01001001       B10110110
-#define DISP_6 B01000001 	// B01000001       B10111110
-#define DISP_7 B00011111 	// B00011111       B11100000
-#define DISP_8 B00000001 	// B00000001       B11111110
-#define DISP_9 B00001001 	// B00001001       B11110110
-#define DISP_A B00010001 	// B00010001       B11101110
-#define DISP_C B01100011 	// B01100011       B10011100
-#define DISP_E B01100001 	// B01100001       B10011110
-#define DISP_F B01110001 	// B01110001       B10001110
-#define DISP_H B10010001 	// B10010001       B01101110
-#define DISP_L B11100011 	// B11100011       B00011100
-#define DISP_P B00110001 	// B00110001       B11001110
-#define DISP_U B10000011 	// B10000011       B01111100
-#define DISP_DEFSTATE B11111111
+#define DISP_0 B00111111
+#define DISP_1 B00000110
+#define DISP_2 B01011011
+#define DISP_3 B01001111
+#define DISP_4 B01100110
+#define DISP_5 B01101101
+#define DISP_6 B01111101
+#define DISP_7 B00000111
+#define DISP_8 B01111111
+#define DISP_9 B01101111
+#define DISP_A B01110111
+#define DISP_C B00111001
+#define DISP_E B01111001
+#define DISP_F B01110001
+#define DISP_H B01110110
+#define DISP_L B00111000
+#define DISP_P B01110011
+#define DISP_U B00111110
+#define DISP_N B00110111
+#define DISP_DEFSTATE B00111111
 
 /**
  * @brief Class used to manage all IO.
@@ -84,10 +84,15 @@ public:
 	/**************************************************************
 	 * @brief Write bit string to seven segment display
 	 *
-	 * @param index Seven segment display index (0 or 1)
-	 * @param key Character to write to display
+	 * @param keys Characters to write to display
 	 **************************************************************/
-	void write_to_display(uint8_t index, char key);
+	void write_to_display(char *keys);
+
+	/**************************************************************
+	 * @brief Open the door of the safe for 20 seconds
+	 * 
+	 **************************************************************/
+	void open_door();
 
 private:
 	/**
@@ -99,4 +104,6 @@ private:
 	 * 
 	 */
     virtual ~GpioManager() = default;
+
+	TM1637Display *_display;
 };
