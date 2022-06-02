@@ -13,7 +13,7 @@ const app = express();
 const server = http.createServer(app);
 const web_io = new Server(server, {
 	cors: {
-		origin: ["http://192.168.10.1:8080", "http://bombnet:8080", "http://localhost:8080"],
+		origin: ["http://192.168.10.1:8080", "http://bombnet:8080", "http://localhost:8080","http://192.168.10.1", "http://bombnet", "http://localhost", "http://boxmaster.local"],
 		methods: ["GET", "POST"]
 	  }
 });

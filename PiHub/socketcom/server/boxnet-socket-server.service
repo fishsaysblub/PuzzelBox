@@ -1,0 +1,19 @@
+## THIS SERVICE RUNS ON STARTUP
+
+[Unit]
+Description=Boxnet socket IO based server for web and device socket communication
+Documentation=https://avans.nl
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+ExecStartPre=/bin/sleep 30
+ExecStart=/usr/bin/node /home/pi/main/PiHub/socketcom/server/socket-server.js 2>&1 | logger &
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
+

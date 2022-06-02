@@ -3,9 +3,10 @@ import {start_device_socket} from './sockets/device-socket.js';
 import {start_web_socket} from './sockets/web-socket.js';
 
 // Device IP setting for development
-const device_host_ip = "127.0.0.1";
-const web_host_ip = "127.0.0.1";
+const device_host_ip = "192.168.199.1";
+const web_host_ip = "192.168.10.1";
 
+console.log("Starting socket server");
 /**
  * Event message syntax:
  *  - Request                   = [name]_req

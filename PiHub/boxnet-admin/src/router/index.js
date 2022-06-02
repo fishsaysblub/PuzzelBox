@@ -92,6 +92,10 @@ const routes = [
     meta: {
       authRequired: false,
     }
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
   }
 ]
 
