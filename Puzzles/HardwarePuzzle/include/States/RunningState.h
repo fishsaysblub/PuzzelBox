@@ -16,7 +16,7 @@
 #define MAX_NUMBER_DISPLAY 10
 #define MORSE_CODE_LENGTH 4
 #define MORSE_CODE_NUMBER_LENGTH 5
-#define CORRECT_LOGIC_GATES_VALUE 0xB6
+#define CORRECT_LOGIC_GATES_VALUE (int[8]){0, 1, 1, 0, 0, 0, 1, 0}
 
 #define MORSE_CODE (int[10][5]) \
 {					 		 	\
@@ -119,7 +119,7 @@ private:
 	EGamestage _current_gamestage;
 
 	std::string _code;
-	byte _logic_gate_values;
+	int _logic_gate_values[8];
 
 	bool _tone_playing;
 

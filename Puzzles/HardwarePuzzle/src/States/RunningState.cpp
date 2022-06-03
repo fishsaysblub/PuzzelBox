@@ -7,7 +7,7 @@
 RunningState::RunningState() :
 	_current_gamestage(NOTSTARTED),
 	_code(""),
-	_logic_gate_values(0),
+	_logic_gate_values{},
 	_tone_playing(false),
 	_morse_code_step(0),
 	_morse_code_number_step(0),
@@ -139,6 +139,8 @@ void RunningState::get_user_input()
 
 		for ( int i = 0; i < 8; i++ )
 		{
+			_logic_gate_values[i] = digitalRead(DATA_PIN_BUTTONS);
+
 			if(digitalRead(DATA_PIN_BUTTONS))
 			{
 				Serial.print( "1" );
@@ -170,9 +172,13 @@ void RunningState::puzzle_check()
 {
 	if (_current_gamestage == LOGICGATES)
 	{
-		if (_logic_gate_values == CORRECT_LOGIC_GATES_VALUE)
+		for (int i = 0; i < 8; i++)
 		{
-			change_gamestage(MORSECODE);
+			if (_logic_gate_values[i] == CORRECT_LOGIC_GATES_VALUE[i])
+			{
+				GpioManager::instance().set_result_led(HIGH);
+				change_gamestage(MORSECODE);
+			}
 		}
 	}
 	else if (_current_gamestage == MORSECODE)

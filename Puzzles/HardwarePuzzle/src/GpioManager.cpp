@@ -9,6 +9,7 @@ GpioManager::GpioManager():
 		pinMode(POTENTIOMETERS[i], INPUT);
 	}
 
+	pinMode(RESULT_LED		 , OUTPUT);
 	pinMode(BUZZER_PIN		 , OUTPUT);
 	pinMode(DATA_PIN_BUTTONS , INPUT );
 	pinMode(CLOCK_PIN_BUTTONS, OUTPUT);
@@ -34,6 +35,11 @@ void GpioManager::set_buzzer_pin(int freq)
 	}
 
 	ledcWriteTone(0, freq);
+}
+
+void GpioManager::set_result_led(int value)
+{
+	digitalWrite(RESULT_LED, value);
 }
 
 TM1637Display GpioManager::get_display_instance()

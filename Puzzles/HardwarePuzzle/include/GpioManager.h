@@ -3,6 +3,7 @@
 
 //TODO: Set pins correctly
 
+#define RESULT_LED		  23
 #define BUZZER_PIN		   4
 
 #define DATA_PIN_BUTTONS  21
@@ -48,6 +49,8 @@ public:
 	TM1637Display get_display_instance();
 
 	void set_buzzer_pin(int freq);
+
+	void set_result_led(int value);
 
 private:
 	/**
