@@ -12,7 +12,7 @@
 #include "I2C_Controller.h"
 #include <Arduino.h>
 #include "FixedI2C/FixedI2C.h"
-#define BUS_NUM 0x40
+#define BUS_NUM 0x42
 #define WAKEUP_PIN 0x200000000 // 2^33 in hex
 
 #include "Wire.h"
