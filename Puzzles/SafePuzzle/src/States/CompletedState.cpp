@@ -18,8 +18,8 @@ void CompletedState::on_enter()
 
 void CompletedState::on_stay()
 {
-	delay(1000);
-	StateMachine::instance().change_state(HYBERNATE);
+	//delay(1000);
+	//StateMachine::instance().change_state(HYBERNATE);
 }
 
 void CompletedState::on_exit()
