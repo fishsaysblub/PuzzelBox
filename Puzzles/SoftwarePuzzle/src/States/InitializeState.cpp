@@ -18,7 +18,7 @@ void InitializeState::on_enter()
 
 void InitializeState::on_stay()
 {
-	GpioManager::instance().initialize_shiftregister();
+	GpioManager::instance().initialize_ledController();
 	StateMachine::instance().change_state(HYBERNATE);
 }
 

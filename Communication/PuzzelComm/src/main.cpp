@@ -35,7 +35,7 @@ void setup()
 	memcpy(test2->Data, data_array, sizeof(data_array));
 	*/
 
-	Serial.begin(9600);
+	Serial.begin(115200);
 	Serial.println("\nBefore setup!");
 	I2C_Controller::Instance().attach_callback(IReceivedData);
 	Serial.println("Started!");
