@@ -4,9 +4,9 @@
 
 void setup()
 {
-	Serial.begin(9600);
+	Serial.begin(115200);
 	Serial.print("\n\n");
-
+	Serial.println("Swiggity Swooty");
 	// Start state machine
 	StateMachine::instance().start_engine();
 }

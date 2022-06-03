@@ -67,4 +67,5 @@ private:
 	virtual ~RunningState();
 
 	bool _matrix[X_LENGTH][Y_LENGTH]; /*!< Matrix which represents the current state of the neotrellis */
+	const bool _reset_matrix[X_LENGTH][Y_LENGTH]; /*!< Matrix which represents the current state of the neotrellis */
 };

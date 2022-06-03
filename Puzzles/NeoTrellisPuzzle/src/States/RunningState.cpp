@@ -6,7 +6,7 @@
 
 #include "Wire.h"
 
-TwoWire *wire = new TwoWire(0);
+TwoWire *wire = new TwoWire(1);
 
 Adafruit_NeoTrellis t_array[Y_LENGTH/4][X_LENGTH/4] = 
 {
@@ -24,6 +24,16 @@ static Adafruit_MultiTrellis _trellis((Adafruit_NeoTrellis *)t_array, Y_LENGTH/4
 
 RunningState::RunningState() :
 	_matrix {
+		{0, 0, 1, 0, 0, 0, 1, 1},
+		{0, 1, 1, 0, 0, 0, 0, 1},
+		{0, 0, 0, 0, 1, 0, 0, 0},
+		{0, 0, 1, 0, 0, 0, 0, 0},
+		{1, 0, 0, 0, 1, 1, 0, 0},
+		{1, 1, 0, 1, 0, 0, 0, 0},
+		{1, 0, 1, 0, 0, 1, 0, 0},
+		{0, 0, 0, 1, 1, 0, 0, 0}
+	},
+	_reset_matrix {
 		{0, 0, 1, 0, 0, 0, 1, 1},
 		{0, 1, 1, 0, 0, 0, 0, 1},
 		{0, 0, 0, 0, 1, 0, 0, 0},
@@ -123,6 +133,8 @@ TrellisCallback RunningState::handle_key_press(keyEvent event)
 void RunningState::on_enter()
 {
 	Serial.println("Enter Running");
+
+	memcpy(_matrix, _reset_matrix, sizeof(_reset_matrix));
 
 	while ( !_trellis.begin() ){};
 	
