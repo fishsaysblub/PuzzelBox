@@ -44,6 +44,11 @@ public:
 	 */
 	void set_ledstrip(bool r, bool b, bool g);
 
+	/**
+	 * @brief Ident blink
+	 */
+	void blink_leds();
+
 private:
 	/**
 	 * @brief Construct for Gpio Manager object.

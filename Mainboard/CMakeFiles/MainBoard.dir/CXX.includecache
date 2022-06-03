@@ -6,73 +6,41 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/repositories/PuzzelBox/Mainboard/include/GpioManager.h
+/home/pi/PuzzelBox/Mainboard/include/GpioManager.h
 
-/home/pi/repositories/PuzzelBox/Mainboard/include/State.h
+/home/pi/PuzzelBox/Mainboard/include/State.h
 
-/home/pi/repositories/PuzzelBox/Mainboard/include/StateMachine.h
+/home/pi/PuzzelBox/Mainboard/include/StateMachine.h
 map
 -
 utility
 -
 State.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/State.h
+/home/pi/PuzzelBox/Mainboard/include/State.h
 
-/home/pi/repositories/PuzzelBox/Mainboard/include/States/CheckState.h
+/home/pi/PuzzelBox/Mainboard/include/States/RunningState.h
 ../State.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/State.h
+/home/pi/PuzzelBox/Mainboard/include/State.h
 
-/home/pi/repositories/PuzzelBox/Mainboard/include/States/CompletedState.h
-../State.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/State.h
-
-/home/pi/repositories/PuzzelBox/Mainboard/include/States/InitializeState.h
-../State.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/State.h
-
-/home/pi/repositories/PuzzelBox/Mainboard/include/States/RunningState.h
-../State.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/State.h
-
-/home/pi/repositories/PuzzelBox/Mainboard/src/StateMachine.cpp
-../include/States/InitializeState.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/States/InitializeState.h
-../include/States/CompletedState.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/States/CompletedState.h
-../include/States/RunningState.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/States/RunningState.h
-../include/States/CheckState.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/States/CheckState.h
-../include/StateMachine.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/StateMachine.h
-../include/State.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/State.h
-stdio.h
+/home/pi/PuzzelBox/Mainboard/src/GpioManager.cpp
+../include/GpioManager.h
+/home/pi/PuzzelBox/Mainboard/include/GpioManager.h
+wiringPi.h
 -
+iostream
+/home/pi/PuzzelBox/Mainboard/src/iostream
 
-/home/pi/repositories/PuzzelBox/Mainboard/src/States/CheckState.cpp
-../../include/States/CheckState.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/States/CheckState.h
-../../include/StateMachine.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/StateMachine.h
-stdio.h
--
-
-/home/pi/repositories/PuzzelBox/Mainboard/src/States/RunningState.cpp
+/home/pi/PuzzelBox/Mainboard/src/States/RunningState.cpp
 ../../include/States/RunningState.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/States/RunningState.h
+/home/pi/PuzzelBox/Mainboard/include/States/RunningState.h
 ../../include/StateMachine.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/StateMachine.h
+/home/pi/PuzzelBox/Mainboard/include/StateMachine.h
 ../../include/GpioManager.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/GpioManager.h
+/home/pi/PuzzelBox/Mainboard/include/GpioManager.h
 wiringPi.h
 -
 stdio.h
 -
 string
 -
-
-/home/pi/repositories/PuzzelBox/Mainboard/src/main.cpp
-../include/StateMachine.h
-/home/pi/repositories/PuzzelBox/Mainboard/include/StateMachine.h
 

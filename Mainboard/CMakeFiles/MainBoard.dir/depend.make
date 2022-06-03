@@ -35,6 +35,7 @@ CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.o: include/StateMachine.h
 CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.o: include/States/RunningState.h
 CMakeFiles/MainBoard.dir/src/States/RunningState.cpp.o: src/States/RunningState.cpp
 
+CMakeFiles/MainBoard.dir/src/main.cpp.o: include/GpioManager.h
 CMakeFiles/MainBoard.dir/src/main.cpp.o: include/State.h
 CMakeFiles/MainBoard.dir/src/main.cpp.o: include/StateMachine.h
 CMakeFiles/MainBoard.dir/src/main.cpp.o: src/main.cpp

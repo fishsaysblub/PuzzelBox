@@ -43,3 +43,5 @@ include_directories(${WIRINGPI_INCLUDE_DIRS})
 # Link against libraries
 target_link_libraries(MainBoard ${WIRINGPI_LIBRARIES}) 
 target_link_libraries(MainBoard ${CMAKE_THREAD_LIBS_INIT}) 
+target_link_libraries(MainBoard -lsioclient)
+target_link_libraries(MainBoard -lpthread)

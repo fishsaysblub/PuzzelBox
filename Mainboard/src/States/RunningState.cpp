@@ -22,8 +22,8 @@ void RunningState::on_enter()
 
 void RunningState::on_stay()
 {
-	get_user_input();
-	render_ledstrip();
+	//get_user_input();
+	//render_ledstrip();
 	are_puzzles_finished();
 }
 

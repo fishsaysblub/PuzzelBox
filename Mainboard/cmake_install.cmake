@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/repositories/PuzzelBox/Mainboard
+# Install script for directory: /home/pi/PuzzelBox/Mainboard
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/pi/repositories/PuzzelBox/Mainboard/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/pi/PuzzelBox/Mainboard/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
