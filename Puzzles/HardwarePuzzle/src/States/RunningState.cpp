@@ -38,6 +38,9 @@ void RunningState::generate_random_four_digit_code()
 void RunningState::on_enter()
 {
 	Serial.println("Enter Running");
+
+	_code.clear();
+
 	generate_random_four_digit_code();	
 	GpioManager::instance();
 

@@ -18,7 +18,7 @@ void HybernateState::on_enter()
 void HybernateState::on_stay()
 {
 	Serial.println("Hybernating...");
-	delay(1000); //TODO: Add real esp sleep function
+	//delay(1000); //TODO: Add real esp sleep function
 	on_awake();
 }
 

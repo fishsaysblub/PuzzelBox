@@ -7,6 +7,51 @@
 #include "State.h"
 #include <Arduino.h>
 
+#include "FixedI2C/FixedI2C.h"
+#include "I2C_Controller.h"
+
+void IReceivedData(MailType* whatyaget)
+{
+	Serial.print("Mail Gotten, primitive[");
+    Serial.print(whatyaget->Primitive);
+    Serial.print("]\n");
+
+	if(whatyaget->Primitive == GAME_START)
+	{
+		MailP1Type* whatigot = reinterpret_cast<MailP1Type*>(whatyaget);
+		if(whatigot->status != SUCCESS)
+			return; 
+
+		whatigot->P1;		// 0xFF
+		whatigot->status; 	// SUCCESS
+
+		Serial.print("p1[");
+		Serial.print(whatigot->P1);
+		Serial.print("]\n");
+
+		Serial.print("status[");
+		Serial.print(whatigot->status);
+		Serial.print("]\n");
+
+		if(StateMachine::instance().get_current_state() != RUNNING)
+			StateMachine::instance().change_state(ENTRY);
+	}
+
+	if(whatyaget->Primitive == GAME_ERROR)
+	{
+		DataMailType* whatigot = reinterpret_cast<DataMailType*>(whatyaget);
+		
+		if(whatigot->status != SUCCESS)
+			return; 
+
+		for (size_t i = 0; i < whatigot->length; i++)
+		{
+			whatigot->Data[i];
+		}
+	}
+}
+
+
 StateMachine::StateMachine() : 
 	_previous_state(INVALID),
 	_all_states(
@@ -19,6 +64,8 @@ StateMachine::StateMachine() :
 	}),
 	_current_state({INVALID, nullptr})
 {
+	I2C_Controller::Instance().attach_callback(IReceivedData);
+	I2C_Controller::Instance().set_status(_current_state.first);
 }
 
 StateMachine::~StateMachine()
@@ -47,11 +94,14 @@ void StateMachine::change_state(EState eState)
 	_current_state.first = eState;
 	_current_state.second = _all_states[eState];
 
+	I2C_Controller::Instance().set_status(_current_state.first);
+
 	_current_state.second->on_enter();
 }
 
 void StateMachine::update()
 {
+	FixedWire.update();
 	if (_current_state.first != INVALID)
 	{
 		_current_state.second->on_stay();
