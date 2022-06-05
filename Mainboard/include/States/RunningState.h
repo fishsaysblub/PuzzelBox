@@ -46,5 +46,6 @@ public:
 
 private:
 	bool _box_is_on_surface; /*!< A boolean which is true if the box is on a surface and false if the box is lifted off a surface. */
+	bool _box_was_on_surface; /*!< Single execution limitor for box on surface change. */
 	bool _puzzles_finished_list[NUMBER_OF_PUZZLES]; /*!< List where which saves for each puzzle if it is completed. */
 };

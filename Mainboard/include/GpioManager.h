@@ -50,6 +50,7 @@ public:
 	void blink_leds();
 
 private:
+	bool _last_led_state[3] = {false, false, false};
 	/**
 	 * @brief Construct for Gpio Manager object.
 	 */

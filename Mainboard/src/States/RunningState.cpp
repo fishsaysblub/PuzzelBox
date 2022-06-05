@@ -7,6 +7,7 @@
 
 RunningState::RunningState():
 	_box_is_on_surface(false),
+	_box_was_on_surface(false),
 	_puzzles_finished_list{}
 {
 }
@@ -22,8 +23,8 @@ void RunningState::on_enter()
 
 void RunningState::on_stay()
 {
-	//get_user_input();
-	//render_ledstrip();
+	get_user_input();
+	render_ledstrip();
 	are_puzzles_finished();
 }
 
@@ -31,21 +32,23 @@ void RunningState::get_user_input()
 {
 	_box_is_on_surface = GpioManager::instance().read_ldr();
 
-	for(int i = 0; i < NUMBER_OF_PUZZLES; i++) //TODO: Replace with callback which sets this list
-	{
-		_puzzles_finished_list[i] = true;
-	}
+	// for(int i = 0; i < NUMBER_OF_PUZZLES; i++) //TODO: Replace with callback which sets this list
+	// {
+	// 	_puzzles_finished_list[i] = true;
+	// }
 }
 
 void RunningState::render_ledstrip()
 {
-	if (_box_is_on_surface)
+	if (_box_is_on_surface && !_box_was_on_surface)
 	{
 		GpioManager::instance().set_ledstrip(LOW, LOW, HIGH);
+		_box_was_on_surface = true;
 	}
-	else
+	else if (_box_was_on_surface)
 	{
 		GpioManager::instance().set_ledstrip(HIGH, LOW, LOW);
+		_box_was_on_surface = false;
 	}
 }
 
