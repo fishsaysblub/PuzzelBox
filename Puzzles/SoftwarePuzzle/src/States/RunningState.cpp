@@ -27,7 +27,7 @@ void RunningState::on_stay()
 {
 	get_user_input();
 	puzzle_finished();
-	print_output_values();
+	//print_output_values();
 }
 
 void RunningState::set_correct_output(int *ouput_array)
@@ -77,11 +77,12 @@ void RunningState::puzzle_finished()
 
 	Serial.println("Puzzle Completed");
 	
+	/*
 	while( 1 )
 	{
 		test_leds_and_shiftregisters();
 	}
-
+	*/
 	GpioManager::instance().render_leds(21845); // TODO: Add real dismantle codes
 	StateMachine::instance().change_state(COMPLETED);
 }
